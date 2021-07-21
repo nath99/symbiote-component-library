@@ -1,12 +1,12 @@
 # Symbiote Component Library
 
-A simple component library.
+The Symbiote component library.
 
 ## Example usage
 
 Install the npm package `yarn install symbiote-component-library` or `npm install symbiote-component-library`
 
-Import the element you need 
+Import the element you need
 
 ```javascript
 // JavaScript
