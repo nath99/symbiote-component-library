@@ -6,7 +6,7 @@
   "files": [
     "dist"
   ],
-  "repository": "git@github.com:nath99/symbiote-component-library.git",
+  "repository": "git@github.com:symbiote/symbiote-component-library.git",
   "author": "Nathan Barry <nathan_barry@live.com.au>",
   "license": "MIT",
   "scripts": {
