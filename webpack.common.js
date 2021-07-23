@@ -16,6 +16,13 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[hash][ext][query]'
+                }
             }
         ],
     },

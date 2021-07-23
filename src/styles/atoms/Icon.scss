@@ -1,9 +1,11 @@
 @import '../variables/all-variables';
 
-$la-font-path: '../../../assets/libs/line-awesome/fonts';
+// $la-font-path: '../../../assets/libs/line-awesome/fonts';
+$la-font-path: '../libs/line-awesome-1.3.0/fonts';
+
 // Include Line Awesome styles
-// @import '../../assets/libs/line-awesome/scss/line-awesome.scss';
-@import '~line-awesome/dist/line-awesome/scss/line-awesome.scss';
+// @import '~line-awesome/dist/line-awesome/scss/line-awesome.scss';
+@import '../../libs/line-awesome-1.3.0/scss/line-awesome.scss';
 
 
 //@import '~line-awesome/dist/line-awesome/css/line-awesome.min.css';

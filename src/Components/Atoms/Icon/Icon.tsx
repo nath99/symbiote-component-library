@@ -8,7 +8,7 @@ export interface IconProps {
     size?: 'xxs'|'xs'|'sm'|'lg'|'xl',
 }
 
-export default class Icon extends React.Component<IconProps> {
+class Icon extends React.Component<IconProps> {
     render() {
         const {
             icon,
@@ -17,7 +17,9 @@ export default class Icon extends React.Component<IconProps> {
         } = this.props;
 
         return (
-            <i data-testid="icon" className={`icon las la-${icon} ${size} ${color}`}></i>
+            <i data-testid="icon" className={`icon las la-${icon} ${(size) ? size:''} ${(color) ? color:''}`}></i>
         )
     }
 }
+
+export { Icon };
