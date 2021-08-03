@@ -49,4 +49,4 @@ class Radio extends React.Component<RadioProps> {
     }
 }
 
-export { RadioItem, Radio };
+export { Radio, RadioItem, RadioProps };

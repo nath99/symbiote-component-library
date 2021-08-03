@@ -6,4 +6,4 @@ interface LabelProps {
 declare class Label extends React.Component<LabelProps> {
     render(): JSX.Element;
 }
-export { Label };
+export { Label, LabelProps };

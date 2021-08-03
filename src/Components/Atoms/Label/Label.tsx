@@ -13,4 +13,4 @@ class Label extends React.Component<LabelProps> {
     }
 }
 
-export { Label };
+export { Label, LabelProps };

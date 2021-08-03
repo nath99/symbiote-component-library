@@ -8,4 +8,4 @@ interface AccordionProps {
 declare class Accordion extends React.Component<AccordionProps> {
     render(): JSX.Element;
 }
-export { Accordion };
+export { Accordion, AccordionProps };

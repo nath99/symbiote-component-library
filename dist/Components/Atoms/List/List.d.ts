@@ -15,4 +15,4 @@ declare class List extends React.Component<ListProps> {
     };
     render(): JSX.Element;
 }
-export { ListItem, List };
+export { List, ListItem, ListProps };

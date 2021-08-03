@@ -1,14 +1,14 @@
 import React from "react";
-export interface SliderProps {
-    value?: string;
+interface SliderProps {
+    value?: number;
     min?: number;
     max?: number;
     sliderId?: string;
 }
 interface SliderState {
-    value: string;
+    value: number;
 }
-export default class Slider extends React.Component<SliderProps, SliderState> {
+declare class Slider extends React.Component<SliderProps, SliderState> {
     static defaultProps: {
         min: number;
         max: number;
@@ -18,4 +18,4 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
     render(): JSX.Element;
 }
-export {};
+export { Slider, SliderProps };

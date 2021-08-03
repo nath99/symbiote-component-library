@@ -11,4 +11,4 @@ declare class Button extends React.Component<ButtonProps> {
     };
     render(): JSX.Element;
 }
-export { Button };
+export { Button, ButtonProps };

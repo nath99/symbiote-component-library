@@ -50,4 +50,4 @@ class Pagination extends React.Component<PaginationProps> {
     }
 }
 
-export { Pagination };
+export { Pagination, PaginationProps };

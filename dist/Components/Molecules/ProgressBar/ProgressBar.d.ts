@@ -10,4 +10,4 @@ interface ProgressBarProps {
 export default class ProgressBar extends React.Component<ProgressBarProps> {
     render(): JSX.Element;
 }
-export { ProgressStep, ProgressBar };
+export { ProgressStep, ProgressBar, ProgressBarProps };

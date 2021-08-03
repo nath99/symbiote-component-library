@@ -12,4 +12,4 @@ interface SelectProps {
 declare class Select extends React.Component<SelectProps> {
     render(): JSX.Element;
 }
-export { SelectItem, Select };
+export { Select, SelectItem, SelectProps };

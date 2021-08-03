@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import ProgressBar, { ProgressBarProps } from "./ProgressBar";
+import { ProgressBar, ProgressBarProps } from "./ProgressBar";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

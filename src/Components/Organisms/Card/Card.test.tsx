@@ -6,13 +6,13 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Card, { CardProps } from './Card';
+import { Card, CardProps } from './Card';
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)
 
 describe('Card Component', () => {
-    let cardProps:CardProps;
+    let cardProps: CardProps;
 
     beforeEach(() => {
         cardProps = {

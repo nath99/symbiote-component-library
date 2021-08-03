@@ -24,4 +24,4 @@ class Accordion extends React.Component<AccordionProps> {
   }
 }
 
-export { Accordion };
+export { Accordion, AccordionProps };

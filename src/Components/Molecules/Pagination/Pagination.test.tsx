@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import { axe, toHaveNoViolations } from "jest-axe";
-import Pagination, { PaginationProps } from "./Pagination";
+import { Pagination, PaginationProps } from "./Pagination";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

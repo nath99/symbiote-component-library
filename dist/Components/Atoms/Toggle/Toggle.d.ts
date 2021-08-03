@@ -6,4 +6,4 @@ interface ToggleProps {
 declare class Toggle extends React.Component<ToggleProps> {
     render(): JSX.Element;
 }
-export { Toggle };
+export { Toggle, ToggleProps };

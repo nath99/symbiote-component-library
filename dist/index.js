@@ -230,6 +230,7 @@ __webpack_require__.d(__webpack_exports__, {
   "ProgressBar": () => (/* reexport */ ProgressBar),
   "Radio": () => (/* reexport */ Radio),
   "Select": () => (/* reexport */ Select),
+  "Slider": () => (/* reexport */ Slider),
   "Table": () => (/* reexport */ Table),
   "Toggle": () => (/* reexport */ Toggle),
   "Tooltip": () => (/* reexport */ Tooltip)
@@ -530,21 +531,23 @@ var Slider = /** @class */ (function (_super) {
     Slider_extends(Slider, _super);
     function Slider(props) {
         var _this = _super.call(this, props) || this;
+        var value = 0;
         if (props.value) {
-            _this.state = {
-                value: props.value
-            };
+            value = props.value;
         }
+        _this.state = {
+            value: value
+        };
         _this.handleChange = _this.handleChange.bind(_this);
         return _this;
     }
     Slider.prototype.handleChange = function (e) {
-        this.setState({ value: e.target.value });
+        this.setState({ value: parseFloat(e.target.value) });
     };
     Slider.prototype.render = function () {
         var generateId = function () {
             var id = Math.random().toString(36).substring(7);
-            return "checkbox-" + id;
+            return "slider-" + id;
         };
         var _a = this.props, min = _a.min, max = _a.max;
         var value = this.state.value;
@@ -562,7 +565,7 @@ var Slider = /** @class */ (function (_super) {
     };
     return Slider;
 }(react.Component));
-/* harmony default export */ const Slider_Slider = ((/* unused pure expression or super */ null && (Slider)));
+
 
 ;// CONCATENATED MODULE: ./src/Components/Atoms/Table/Table.tsx
 var Table_extends = (undefined && undefined.__extends) || (function () {

@@ -1,5 +1,5 @@
 import React from "react";
-interface Props {
+interface CardProps {
     image?: string;
     fullImage: boolean;
     wide?: boolean;
@@ -10,8 +10,8 @@ interface Props {
     callToActionText?: string;
     callToActionLink?: string;
 }
-declare class Card extends React.Component<Props> {
+declare class Card extends React.Component<CardProps> {
     getMonthString(d: Date): string;
     render(): JSX.Element;
 }
-export { Card };
+export { Card, CardProps };

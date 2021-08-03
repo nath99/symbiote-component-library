@@ -34,4 +34,4 @@ class Toggle extends React.Component<ToggleProps> {
     }
 }
 
-export { Toggle };
+export { Toggle, ToggleProps };

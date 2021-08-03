@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Accordion, { AccordionProps } from "./Accordion";
+import { Accordion, AccordionProps } from "./Accordion";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

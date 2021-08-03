@@ -18,4 +18,4 @@ class Tooltip extends React.Component<TooltipProps> {
     }
 }
 
-export { Tooltip };
+export { Tooltip, TooltipProps };

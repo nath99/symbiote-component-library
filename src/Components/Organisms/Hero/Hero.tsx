@@ -59,4 +59,4 @@ class Hero extends React.Component<HeroProps> {
     }
 }
 
-export { Hero };
+export { Hero, HeroProps };

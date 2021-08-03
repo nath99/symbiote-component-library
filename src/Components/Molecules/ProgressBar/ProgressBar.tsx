@@ -47,4 +47,4 @@ export default class ProgressBar extends React.Component<ProgressBarProps> {
     }
 }
 
-export {ProgressStep, ProgressBar};
+export {ProgressStep, ProgressBar, ProgressBarProps};

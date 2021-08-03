@@ -46,4 +46,4 @@ class Select extends React.Component<SelectProps> {
     }
 }
 
-export { SelectItem, Select };
+export { Select, SelectItem, SelectProps };

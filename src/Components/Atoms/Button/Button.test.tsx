@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Button, { ButtonProps } from "./Button";
+import { Button, ButtonProps } from "./Button";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

@@ -9,4 +9,4 @@ interface PaginationProps {
 declare class Pagination extends React.Component<PaginationProps> {
     render(): JSX.Element;
 }
-export { Pagination };
+export { Pagination, PaginationProps };

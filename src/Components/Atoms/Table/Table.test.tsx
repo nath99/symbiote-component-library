@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Table, { TableProps } from "./Table";
+import { Table, TableProps } from "./Table";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

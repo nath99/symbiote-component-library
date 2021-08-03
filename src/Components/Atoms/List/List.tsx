@@ -44,4 +44,4 @@ class List extends React.Component<ListProps> {
     }
 }
 
-export { ListItem, List };
+export { List, ListItem, ListProps };

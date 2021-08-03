@@ -16,4 +16,4 @@ declare class Table extends React.Component<TableProps> {
     generateBody(): JSX.Element[];
     render(): JSX.Element;
 }
-export { Table };
+export { Table, TableProps };

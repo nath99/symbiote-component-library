@@ -1,5 +1,5 @@
 import React from "react";
-interface Props {
+interface CardProps {
     image?: string
     fullImage: boolean
     wide?: boolean
@@ -10,7 +10,7 @@ interface Props {
     callToActionText?: string
     callToActionLink?: string
 }
-class Card extends React.Component<Props> {
+class Card extends React.Component<CardProps> {
     getMonthString(d: Date): string {
         const days = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -67,4 +67,4 @@ class Card extends React.Component<Props> {
     }
 }
 
-export { Card };
+export { Card, CardProps };

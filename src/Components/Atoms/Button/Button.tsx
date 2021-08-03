@@ -22,4 +22,4 @@ class Button extends React.Component<ButtonProps> {
 }
 
 
-export { Button };
+export { Button, ButtonProps };

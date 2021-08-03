@@ -51,4 +51,4 @@ class Table extends React.Component<TableProps> {
     }
 }
 
-export { Table };
+export { Table, TableProps };

@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Slider, { SliderProps } from "./Slider";
+import { Slider, SliderProps } from "./Slider";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

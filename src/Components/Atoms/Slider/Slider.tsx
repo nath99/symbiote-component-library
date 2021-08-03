@@ -1,17 +1,17 @@
 import React from "react";
 
-export interface SliderProps {
-    value?: string,
+interface SliderProps {
+    value?: number,
     min?: number,
     max?: number,
     sliderId?: string
 }
 
 interface SliderState {
-    value: string
+    value: number
 }
 
-export default class Slider extends React.Component<SliderProps, SliderState> {
+class Slider extends React.Component<SliderProps, SliderState> {
     static defaultProps = {
         min: 0,
         max: 10,
@@ -21,18 +21,22 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     constructor(props: SliderProps) {
         super(props);
 
+        let value = 0;
+
         if (props.value) {
-            this.state = {
-                value: props.value
-            };
+            value = props.value;
         }
+
+        this.state = {
+            value: value
+        };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e: React.ChangeEvent<HTMLInputElement>) {
             this.setState(
-                {value: e.target.value}
+                {value: parseFloat(e.target.value)}
             )
     }
 
@@ -40,7 +44,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         let generateId = ():string => {
             const id = Math.random().toString(36).substring(7);
 
-            return "checkbox-" + id
+            return "slider-" + id
         }
 
         const {
@@ -65,3 +69,5 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         )
     }
 }
+
+export { Slider, SliderProps };

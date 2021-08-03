@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Radio, { RadioProps } from "./Radio";
+import { Radio, RadioProps } from "./Radio";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

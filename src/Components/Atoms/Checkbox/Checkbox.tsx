@@ -33,4 +33,4 @@ class Checkbox extends React.Component<CheckboxProps> {
     }
 }
 
-export { Checkbox };
+export { Checkbox, CheckboxProps };

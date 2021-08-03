@@ -6,4 +6,4 @@ interface TooltipProps {
 declare class Tooltip extends React.Component<TooltipProps> {
     render(): JSX.Element;
 }
-export { Tooltip };
+export { Tooltip, TooltipProps };

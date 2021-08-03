@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Label, { LabelProps } from "./Label";
+import { Label, LabelProps } from "./Label";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)

@@ -11,4 +11,4 @@ interface RadioProps {
 declare class Radio extends React.Component<RadioProps> {
     render(): JSX.Element;
 }
-export { RadioItem, Radio };
+export { Radio, RadioItem, RadioProps };

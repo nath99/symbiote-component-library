@@ -19,4 +19,4 @@ declare class Hero extends React.Component<HeroProps> {
     renderContained(): JSX.Element;
     render(): JSX.Element;
 }
-export { Hero };
+export { Hero, HeroProps };

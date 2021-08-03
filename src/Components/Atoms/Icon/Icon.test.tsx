@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import Icon, { IconProps } from "./Icon";
+import { Icon, IconProps } from "./Icon";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)
