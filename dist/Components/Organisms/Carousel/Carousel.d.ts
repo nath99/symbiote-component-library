@@ -3,7 +3,8 @@ import React from "react";
 interface Slide {
     image?: string;
     altText?: string;
-    caption?: string;
+    captionHeading?: string;
+    captionBody?: string;
 }
 interface Props {
     interval: number;
@@ -19,14 +20,13 @@ declare class Carousel extends React.Component<Props, State> {
     constructor(props: Props);
     componentDidMount(): void;
     goToNextSlide: () => void;
+    goToPreviousSlide: () => void;
     goToSpecificSlide: (index: number) => void;
     playCarousel: () => void;
     pauseCarousel: () => void;
     clearIntervalTimer: () => void;
     restartIntervalTimer: () => void;
     swapPlayPauseIcon: () => void;
-    renderDots: () => HTMLButtonElement[];
-    renderSlides: () => HTMLLIElement[];
     render(): JSX.Element;
 }
 export { Carousel };

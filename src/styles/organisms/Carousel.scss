@@ -1,0 +1,177 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 0 0 0.5rem 0;
+    overflow: hidden;
+
+    ul {
+        list-style: none;
+
+        position: relative;
+        padding-left: 0;
+
+        .carousel-slide {
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 1s;
+            width: 100%;
+            height: 16rem;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+
+            @include media-breakpoint-up(sm) {
+                height: 21rem;
+            }
+
+            @include media-breakpoint-up(md) {
+                height: 24rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                height: 27rem;
+            }
+
+            &.visible {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            img {
+                object-fit: cover;
+
+                @include media-breakpoint-up(sm) {
+                    height: 21rem;
+                }
+
+                @include media-breakpoint-up(md) {
+                    height: 24rem;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    height: 27rem;
+                }
+            }
+
+            .carousel-caption {
+                background-color: rgba(0,0,0,.5);
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+                padding: 0 1rem 0;
+
+                @include media-breakpoint-down(sm) {
+                    height: 32%;
+                }
+
+                @include media-breakpoint-up(md) {
+                    height: 31%;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    height: 28%;
+                }
+
+                h5 {
+                    margin: 0.75rem;
+                }
+            }
+        }
+    }
+
+    .controls {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        z-index: 16;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        height: 16rem;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+
+        @include media-breakpoint-up(md) {
+            height: 24rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            height: 27rem;
+        }
+
+        button {
+            background-color: $transparent;
+            display: flex;
+            border: none;
+            background-color: (rgba(0,0,0,0.5));
+            border-radius: 0;
+            margin: 0;
+            padding: 0.5rem;
+
+            &.previous-slide, &.next-slide {
+                align-items: center;
+                height: auto;
+            }
+
+            &.play-pause {
+                width: auto;
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .carousel-dots-container {
+        display: flex;
+        align-self: flex-end;
+        width: 100%;
+        z-index: 15;
+        justify-content: center;
+        align-items: flex-end;
+        height: 17.5rem;
+        z-index: 15;
+
+        @include media-breakpoint-up(sm) {
+            height: 22.5rem;
+        }
+
+        @include media-breakpoint-up(md) {
+            height: 25.5rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            height: 28.5rem;
+        }
+
+        .carousel-dot {
+            cursor: pointer;
+            display: inline-block;
+            width: 0.75rem;
+            height: 0.75rem;
+            margin: 0 0.75rem;
+            border: none;
+            padding: 0;
+            background-color: $carousel-inactive-dot-color;
+            border-radius: 100%;
+
+            @include media-breakpoint-up(sm) {
+                width: 0.8rem;
+                height: 0.8rem;
+            }
+
+            &.active, &:hover {
+                background-color: $carousel-active-dot-color;
+            }
+        }
+    }
+}

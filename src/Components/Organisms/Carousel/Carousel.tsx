@@ -1,12 +1,11 @@
 import React from "react";
-
-// TODO: Add caption feature to slides
-// TODO: Add swipe functionality to swap between slides
+require('../../../libs/swiped-events-1.1.4/swiped-events.min.js');
 
 interface Slide {
     image?: string
     altText?: string
-    caption?: string
+    captionHeading?: string
+    captionBody?: string
 }
 interface Props {
     interval: number
@@ -32,15 +31,14 @@ class Carousel extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        const { interval, slides } = this.props;
-        const { visibleSlideIndex, playing } = this.state;
+        const { interval } = this.props;
+        const { playing } = this.state;
 
         // Get rendered elements
         const nextSlide = document.querySelector('.next-slide');
         const previousSlide = document.querySelector('.previous-slide');
         const playPause = document.querySelector('.play-pause');
-        const renderedDots = document.querySelectorAll('.carousel-dot');
-        const renderedSlides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
 
         // Set the interval timer for the first time
         this.slideInterval = setInterval(this.goToNextSlide, interval);
@@ -52,103 +50,104 @@ class Carousel extends React.Component<Props, State> {
             });
         }
 
+        // Loop through dots and create a click listener for each one
+        if (dots) {
+            for (let i = 0; i < dots.length; i++) {
+                // Assign a click listener to each dot to select the specific index
+                dots[i].addEventListener('click', () => {
+                    this.goToSpecificSlide(i)
+                });
+            }
+        }
+
+        // Add click listener for next button to move to the next slide
         if (nextSlide) {
-            // Add click listener for next button to move to the next slide
             nextSlide.addEventListener('click', () => {
+                // Stop the current interval
                 this.clearIntervalTimer();
 
-                renderedSlides[visibleSlideIndex].classList.remove('visible');
-                renderedDots[visibleSlideIndex].classList.remove('active');
+                this.goToNextSlide();
 
-                this.setState({
-                    visibleSlideIndex: visibleSlideIndex + 1
-                })
-
-
-                if (visibleSlideIndex >= renderedSlides.length) {
-                    this.setState({
-                        visibleSlideIndex: 0
-                    })
-                }
-
-                renderedSlides[visibleSlideIndex].classList.add('visible');
-                renderedDots[visibleSlideIndex].classList.add('active');
-
-                // When the next slide button is clicked, make sure to reset the interval to avoid images swapping right away
+                // When the next slide button is clicked, make sure to restart the interval to avoid images swapping right away
                 this.restartIntervalTimer();
             });
         }
+
         // Add click listener for previous button to move to the previous slide
         if (previousSlide) {
             previousSlide.addEventListener('click', () => {
+                // Stop the current interval
                 this.clearIntervalTimer();
 
-                renderedSlides[visibleSlideIndex].classList.remove('visible');
-                renderedDots[visibleSlideIndex].classList.remove('active');
+                this.goToPreviousSlide();
 
-                this.setState({
-                    visibleSlideIndex: visibleSlideIndex-1
-                })
-
-                if (visibleSlideIndex < 0) {
-                    this.setState({
-                        visibleSlideIndex: slides.length - 1
-                    })
-                }
-
-                renderedSlides[visibleSlideIndex].classList.add('visible');
-                renderedDots[visibleSlideIndex].classList.add('active');
-
-                // When the previous slide button is clicked, make sure to reset the interval to avoid images swapping right away
+                // When the previous slide button is clicked, make sure to restart the interval to avoid images swapping right away
                 this.restartIntervalTimer();
             });
         }
+
+        // Add click listener for next button to move to the next slide
+        document.addEventListener('swiped-right', () => {
+            // Stop the current interval
+            this.clearIntervalTimer();
+
+            this.goToPreviousSlide();
+
+            // When the previous slide button is clicked, make sure to restart the interval to avoid images swapping right away
+            this.restartIntervalTimer();
+        });
+
+        // Add a swipe left listener to go to move to the previous slide
+        document.addEventListener('swiped-left', () => {
+            // Stop the current interval
+            this.clearIntervalTimer();
+
+            this.goToNextSlide();
+
+            // When the next slide button is clicked, make sure to restart the interval to avoid images swapping right away
+            this.restartIntervalTimer();
+        });
     }
 
-    // Moves accross the array of slides
+    // Moves across the array of slides
     goToNextSlide = (): void => {
+        const { slides } = this.props;
         const { visibleSlideIndex } = this.state;
 
-        const renderedSlides = document.querySelectorAll('.carousel-slide');
-        const renderedDots = document.querySelectorAll('.carousel-dot');
-
-        // Hide currently visible slide
-        renderedSlides[visibleSlideIndex].classList.remove('visible');
-        renderedDots[visibleSlideIndex].classList.remove('active');
-
-        // Iterate one index
-        this.setState({
-            visibleSlideIndex: visibleSlideIndex + 1
-        })
-
-
-        // If we hit the end of the array, then start from the begining
-        if (visibleSlideIndex >= renderedSlides.length) {
+        // If we are at the last slide, wrap around to the first slide
+        if (visibleSlideIndex == slides.length - 1) {
             this.setState({
                 visibleSlideIndex: 0
             })
+            // Otherwise just go forward a slide
+        } else {
+            this.setState({
+                visibleSlideIndex: visibleSlideIndex + 1
+            })
         }
+    }
 
-        // Set slide by updated index to be visible
-        renderedSlides[visibleSlideIndex].classList.add('visible');
-        renderedDots[visibleSlideIndex].classList.add('active');
+    // Moves across the array of slides
+    goToPreviousSlide = (): void => {
+        const { slides } = this.props;
+        const { visibleSlideIndex } = this.state;
+
+        // If we are at the first slide, wrap around to the last slide
+        if (visibleSlideIndex == 0) {
+            this.setState({
+                visibleSlideIndex: slides.length - 1
+            })
+            // Otherwise just go back a slide
+        } else {
+            this.setState({
+                 visibleSlideIndex: visibleSlideIndex - 1
+            })
+        }
     }
 
     // Move to specific slide based on index parameter
     goToSpecificSlide = (index: number): void => {
-        const renderedSlides = document.querySelectorAll('.carousel-slide');
-        const renderedDots = document.querySelectorAll('.carousel-dot');
-        const { visibleSlideIndex } = this.state;
-
         this.clearIntervalTimer();
-
-        // Hide currently visible slide
-        renderedSlides[visibleSlideIndex].classList.remove('visible');
-        renderedDots[visibleSlideIndex].classList.remove('active');
-
-        // Set slide by index parameter to be visible and set appropriate dot to be active
-        renderedSlides[index].classList.add('visible');
-        renderedDots[index].classList.add('active');
 
         // Update the currently visible index value
         this.setState({
@@ -219,77 +218,22 @@ class Carousel extends React.Component<Props, State> {
         }
     }
 
-    renderDots = (): HTMLButtonElement[] => {
-        const { slides } = this.props;
-        const { visibleSlideIndex } = this.state;
-
-        let dots:HTMLButtonElement[] = [];
-
-        // Loop through slides and create a dot for each one
-        for (let index = 0; index < slides.length; index++) {
-            const dot = document.createElement('button');
-
-            // Add class
-            dot.classList.add('carousel-dot');
-
-            // Assign a click listener to each dot to select the specific index
-            dot.addEventListener('click', () => {
-                this.goToSpecificSlide(index)
-            });
-
-            // Add the dot to its array
-            dots.push(dot)
-        }
-
-        // Make appropriate dot visible
-        dots[visibleSlideIndex].classList.add('visible');
-
-        return dots;
-    }
-
-    renderSlides = (): HTMLLIElement[] => {
-        const { slides } = this.props;
-        const { visibleSlideIndex } = this.state;
-
-        let renderedSlides:HTMLLIElement[] = [];
-
-        // Loop through slides and create a dot for each one
-        for (let index = 0; index < slides.length; index++) {
-            const slide = document.createElement('li');
-            const image = document.createElement('img');
-
-            // Add classes
-            slide.classList.add('carousel-slide');
-            image.classList.add('carousel-slide-background');
-
-             // Add the image source
-            if (slides[index].image) {
-                image.src = slides[index].image!;
-            }
-
-            // Add the image alt text
-            if (slides[index].altText) {
-                image.alt = slides[index].altText!;
-            }
-
-            // Add the image to the slide
-            slide.append(image)
-
-            // Add the slide to its array
-            renderedSlides.push(slide)
-        }
-
-        // Make appropriate slide visible
-        renderedSlides[visibleSlideIndex].classList.add('visible');
-
-        return renderedSlides;
-    }
-
     render() {
+        const { slides } = this.props;
+        const { visibleSlideIndex } = this.state;
+
         return (
             <div className="carousel">
                 <ul>
-                    {this.renderSlides()}
+                    {slides.map((slide, index) =>
+                        <li className={`carousel-slide ${visibleSlideIndex == index ? 'visible' : ''}`}>
+                            <img src={slide.image} alt={slide.altText}></img>
+                            <div className="carousel-caption">
+                                <h5 className="inverted">{slide.captionHeading}</h5>
+                                <p className="inverted">{slide.captionBody}.</p>
+                            </div>
+                        </li>
+                    )}
                 </ul>
                 <div className="controls">
                     <button className="previous-slide">
@@ -306,7 +250,9 @@ class Carousel extends React.Component<Props, State> {
                     </button>
                 </div>
                 <div className="carousel-dots-container">
-                    {this.renderDots()}
+                    {slides.map((slide, index) =>
+                        <button className={`carousel-dot ${visibleSlideIndex == index ? 'active' : ''}`}></button>
+                    )}
                 </div>
             </div>
         )
