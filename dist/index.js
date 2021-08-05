@@ -9,12 +9,12 @@
 		root["symbiote-component-library"] = factory();
 })(self, function() {
 return /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 418:
 /***/ ((module) => {
 
+"use strict";
 /*
 object-assign
 (c) Sindre Sorhus
@@ -112,6 +112,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /***/ 408:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 /** @license React v17.0.2
  * react.production.min.js
  *
@@ -142,12 +143,28 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 /***/ 294:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (true) {
   module.exports = __webpack_require__(408);
 } else {}
 
+
+/***/ }),
+
+/***/ 897:
+/***/ (() => {
+
+/*!
+ * swiped-events.js - v1.1.4
+ * Pure JavaScript swipe events
+ * https://github.com/john-doherty/swiped-events
+ * @inspiration https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element
+ * @author John Doherty <www.johndoherty.info>
+ * @license MIT
+ */
+!function(t,e){"use strict";"function"!=typeof t.CustomEvent&&(t.CustomEvent=function(t,n){n=n||{bubbles:!1,cancelable:!1,detail:void 0};var a=e.createEvent("CustomEvent");return a.initCustomEvent(t,n.bubbles,n.cancelable,n.detail),a},t.CustomEvent.prototype=t.Event.prototype),e.addEventListener("touchstart",function(t){if("true"===t.target.getAttribute("data-swipe-ignore"))return;s=t.target,r=Date.now(),n=t.touches[0].clientX,a=t.touches[0].clientY,u=0,i=0},!1),e.addEventListener("touchmove",function(t){if(!n||!a)return;var e=t.touches[0].clientX,r=t.touches[0].clientY;u=n-e,i=a-r},!1),e.addEventListener("touchend",function(t){if(s!==t.target)return;var e=parseInt(l(s,"data-swipe-threshold","20"),10),o=parseInt(l(s,"data-swipe-timeout","500"),10),c=Date.now()-r,d="",p=t.changedTouches||t.touches||[];Math.abs(u)>Math.abs(i)?Math.abs(u)>e&&c<o&&(d=u>0?"swiped-left":"swiped-right"):Math.abs(i)>e&&c<o&&(d=i>0?"swiped-up":"swiped-down");if(""!==d){var b={dir:d.replace(/swiped-/,""),xStart:parseInt(n,10),xEnd:parseInt((p[0]||{}).clientX||-1,10),yStart:parseInt(a,10),yEnd:parseInt((p[0]||{}).clientY||-1,10)};s.dispatchEvent(new CustomEvent("swiped",{bubbles:!0,cancelable:!0,detail:b})),s.dispatchEvent(new CustomEvent(d,{bubbles:!0,cancelable:!0,detail:b}))}n=null,a=null,r=null},!1);var n=null,a=null,u=null,i=null,r=null,s=null;function l(t,n,a){for(;t&&t!==e.documentElement;){var u=t.getAttribute(n);if(u)return u;t=t.parentNode}return a}}(window,document);
 
 /***/ })
 
@@ -208,8 +225,9 @@ if (true) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -219,6 +237,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Breadcrumbs": () => (/* reexport */ Breadcrumbs),
   "Button": () => (/* reexport */ Button),
   "Card": () => (/* reexport */ Card),
+  "Carousel": () => (/* reexport */ Carousel),
   "Checkbox": () => (/* reexport */ Checkbox),
   "Footer": () => (/* reexport */ Footer),
   "Hero": () => (/* reexport */ Hero),
@@ -1084,6 +1103,223 @@ var Notification = /** @class */ (function (_super) {
 }(react.Component));
 
 
+;// CONCATENATED MODULE: ./src/Components/Organisms/Carousel/Carousel.tsx
+var Carousel_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+__webpack_require__(897);
+var Carousel = /** @class */ (function (_super) {
+    Carousel_extends(Carousel, _super);
+    function Carousel(props) {
+        var _this = _super.call(this, props) || this;
+        // Moves across the array of slides
+        _this.goToNextSlide = function () {
+            var slides = _this.props.slides;
+            var visibleSlideIndex = _this.state.visibleSlideIndex;
+            // If we are at the last slide, wrap around to the first slide
+            if (visibleSlideIndex == slides.length - 1) {
+                _this.setState({
+                    visibleSlideIndex: 0
+                });
+                // Otherwise just go forward a slide
+            }
+            else {
+                _this.setState({
+                    visibleSlideIndex: visibleSlideIndex + 1
+                });
+            }
+        };
+        // Moves across the array of slides
+        _this.goToPreviousSlide = function () {
+            var slides = _this.props.slides;
+            var visibleSlideIndex = _this.state.visibleSlideIndex;
+            // If we are at the first slide, wrap around to the last slide
+            if (visibleSlideIndex == 0) {
+                _this.setState({
+                    visibleSlideIndex: slides.length - 1
+                });
+                // Otherwise just go back a slide
+            }
+            else {
+                _this.setState({
+                    visibleSlideIndex: visibleSlideIndex - 1
+                });
+            }
+        };
+        // Move to specific slide based on index parameter
+        _this.goToSpecificSlide = function (index) {
+            _this.clearIntervalTimer();
+            // Update the currently visible index value
+            _this.setState({
+                visibleSlideIndex: index
+            });
+            // When going to a specific slide, make sure to reset the interval to avoid images swapping right away
+            _this.restartIntervalTimer();
+        };
+        // Play carousel
+        _this.playCarousel = function () {
+            var playPause = document.querySelector('.play-pause');
+            if (playPause) {
+                _this.setState({
+                    playing: true
+                });
+                _this.restartIntervalTimer();
+                _this.swapPlayPauseIcon();
+            }
+        };
+        // Pause carousel
+        _this.pauseCarousel = function () {
+            var playPause = document.querySelector('.play-pause');
+            var playPauseIcon = document.querySelector('.play-pause i');
+            if (playPause && playPauseIcon) {
+                _this.setState({
+                    playing: false
+                });
+                _this.clearIntervalTimer();
+                _this.swapPlayPauseIcon();
+            }
+        };
+        // Clear the interval timer
+        _this.clearIntervalTimer = function () {
+            clearInterval(_this.slideInterval);
+        };
+        // Reset the interval timer
+        _this.restartIntervalTimer = function () {
+            var interval = _this.props.interval;
+            var playing = _this.state.playing;
+            _this.slideInterval = setInterval(_this.goToNextSlide, interval);
+            // Check if currently paused, if so swap the icons over and set playing to true
+            if (!playing) {
+                _this.swapPlayPauseIcon();
+                _this.setState({
+                    playing: true
+                });
+            }
+        };
+        // Swap the play and pause icons
+        _this.swapPlayPauseIcon = function () {
+            var playPauseIcon = document.querySelector('.play-pause i');
+            if (playPauseIcon) {
+                playPauseIcon.classList.toggle("la-pause-circle");
+                playPauseIcon.classList.toggle("la-play-circle");
+            }
+        };
+        _this.state = {
+            playing: true,
+            visibleSlideIndex: 0
+        };
+        return _this;
+    }
+    Carousel.prototype.componentDidMount = function () {
+        var _this = this;
+        var interval = this.props.interval;
+        var playing = this.state.playing;
+        // Get rendered elements
+        var nextSlide = document.querySelector('.next-slide');
+        var previousSlide = document.querySelector('.previous-slide');
+        var playPause = document.querySelector('.play-pause');
+        var dots = document.querySelectorAll('.carousel-dot');
+        // Set the interval timer for the first time
+        this.slideInterval = setInterval(this.goToNextSlide, interval);
+        // Add click listener for play/pause button
+        if (playPause) {
+            playPause.addEventListener('click', function () {
+                playing ? _this.pauseCarousel() : _this.playCarousel();
+            });
+        }
+        // Loop through dots and create a click listener for each one
+        if (dots) {
+            var _loop_1 = function (i) {
+                // Assign a click listener to each dot to select the specific index
+                dots[i].addEventListener('click', function () {
+                    _this.goToSpecificSlide(i);
+                });
+            };
+            for (var i = 0; i < dots.length; i++) {
+                _loop_1(i);
+            }
+        }
+        // Add click listener for next button to move to the next slide
+        if (nextSlide) {
+            nextSlide.addEventListener('click', function () {
+                // Stop the current interval
+                _this.clearIntervalTimer();
+                _this.goToNextSlide();
+                // When the next slide button is clicked, make sure to restart the interval to avoid images swapping right away
+                _this.restartIntervalTimer();
+            });
+        }
+        // Add click listener for previous button to move to the previous slide
+        if (previousSlide) {
+            previousSlide.addEventListener('click', function () {
+                // Stop the current interval
+                _this.clearIntervalTimer();
+                _this.goToPreviousSlide();
+                // When the previous slide button is clicked, make sure to restart the interval to avoid images swapping right away
+                _this.restartIntervalTimer();
+            });
+        }
+        // Add click listener for next button to move to the next slide
+        document.addEventListener('swiped-right', function () {
+            // Stop the current interval
+            _this.clearIntervalTimer();
+            _this.goToPreviousSlide();
+            // When the previous slide button is clicked, make sure to restart the interval to avoid images swapping right away
+            _this.restartIntervalTimer();
+        });
+        // Add a swipe left listener to go to move to the previous slide
+        document.addEventListener('swiped-left', function () {
+            // Stop the current interval
+            _this.clearIntervalTimer();
+            _this.goToNextSlide();
+            // When the next slide button is clicked, make sure to restart the interval to avoid images swapping right away
+            _this.restartIntervalTimer();
+        });
+    };
+    Carousel.prototype.render = function () {
+        var slides = this.props.slides;
+        var visibleSlideIndex = this.state.visibleSlideIndex;
+        return (react.createElement("div", { className: "carousel" },
+            react.createElement("ul", null, slides.map(function (slide, index) {
+                return react.createElement("li", { className: "carousel-slide " + (visibleSlideIndex == index ? 'visible' : '') },
+                    react.createElement("img", { src: slide.image, alt: slide.altText }),
+                    react.createElement("div", { className: "carousel-caption" },
+                        react.createElement("h5", { className: "inverted" }, slide.captionHeading),
+                        react.createElement("p", { className: "inverted" },
+                            slide.captionBody,
+                            ".")));
+            })),
+            react.createElement("div", { className: "controls" },
+                react.createElement("button", { className: "previous-slide" },
+                    react.createElement("i", { className: "las la-arrow-circle-left sm inverted" }),
+                    react.createElement("span", { className: "sr-only" }, "Previous slide")),
+                react.createElement("button", { className: "play-pause" },
+                    react.createElement("i", { className: "las la-pause-circle sm inverted" }),
+                    react.createElement("span", { className: "sr-only" }, "Pause")),
+                react.createElement("button", { className: "next-slide" },
+                    react.createElement("i", { className: "las la-arrow-circle-right sm inverted" }),
+                    react.createElement("span", { className: "sr-only" }, "Next slide"))),
+            react.createElement("div", { className: "carousel-dots-container" }, slides.map(function (slide, index) {
+                return react.createElement("button", { className: "carousel-dot " + (visibleSlideIndex == index ? 'active' : '') });
+            }))));
+    };
+    return Carousel;
+}(react.Component));
+
+
 ;// CONCATENATED MODULE: ./src/index.ts
 
 // Export Atoms
@@ -1104,6 +1340,7 @@ var Notification = /** @class */ (function (_super) {
 
 
 // Export Organisms
+
 
 
 

@@ -68,15 +68,15 @@ button {
 
     &.outline-light {
         background-color: $transparent;
-        color: $white;
-        border: 0.0625rem solid $white;
+        color: $outline-light-color;
+        border: 0.0625rem solid $outline-light-color;
         // height: 100%;
     }
 
     &.outline-dark {
         background-color: $transparent;
-        color: $black;
-        border: 0.0625rem solid $black;
+        color: $outline-dark-color;
+        border: 0.0625rem solid $outline-dark-color;
         // height: 100%;
     }
 

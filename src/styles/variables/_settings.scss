@@ -22,124 +22,127 @@
     ) !default;
 
 // Body settings
-$body-background-color: $gray-non-aa-lightest;
+$body-background-color: $gray-non-aa-lightest !default;
 
 // Button settings
-$button-font: 'Body', sans-serif;
-$primary-background-color: $cyan-aa-small;
-$primary-foreground-color: $white;
+$button-font: 'Body', sans-serif !default;
+$primary-background-color: $cyan-aa-small !default;
+$primary-foreground-color: $white !default;
 
-$secondary-background-color: $cyan-aa-small;
-$secondary-foreground-color: $white;
+$secondary-background-color: $cyan-aa-small !default;
+$secondary-foreground-color: $white !default;
 
-$tertiary-background-color: $red-aa-small;
-$tertiary-foreground-color: $white;
+$tertiary-background-color: $red-aa-small !default;
+$tertiary-foreground-color: $white !default;
 
-$disabled-background-color: $gray-aa-small;
-$disabled-foreground-color: $white;
+$disabled-background-color: $gray-aa-small !default;
+$disabled-foreground-color: $white !default;
+
+$outline-light-color: $white !default;
+$outline-dark-color: $black !default;
 
 // Tyopgraphy settings
-$default-text-color: $black;
-$link-color: $cyan-aa-small;
+$default-text-color: $black !default;
+$link-color: $cyan-aa-small !default;
 
 // Navigation settings
-$navigation-background-color: $cyan-aa-small;
-$navigation-foreground-color: $white;
-$navigation-dropdown-background-color: $white;
-$navigation-dropdown-foreground-color: $cyan-aa-small;
-$navigation-mobile-background: $gray-aa-small;
-$navigation-mobile-foreground: $white;
+$navigation-background-color: $cyan-aa-small !default;
+$navigation-foreground-color: $white !default;
+$navigation-dropdown-background-color: $white !default;
+$navigation-dropdown-foreground-color: $cyan-aa-small !default;
+$navigation-mobile-background: $gray-aa-small !default;
+$navigation-mobile-foreground: $white !default;
 
 // Side navaigation settings
-$side-navigation-heading-color: $cyan-aa-small;
-$side-navigation-link-color: $black;
-$side-navigation-hover-color: $cyan-aa-small;
-$side-navigation-mobile-border-color: $gray-aa-large;
+$side-navigation-heading-color: $cyan-aa-small !default;
+$side-navigation-link-color: $black !default;
+$side-navigation-hover-color: $cyan-aa-small !default;
+$side-navigation-mobile-border-color: $gray-aa-large !default;
 
 // Breadcumbs settings
-$breadcumbs-background-color: $gray-non-aa-medium;
-$breadcumbs-foreground-color: $black;
+$breadcumbs-background-color: $gray-non-aa-medium !default;
+$breadcumbs-foreground-color: $black !default;
 
 // Input settings
-$checkbox-border-color: $cyan-aa-small;
-$checkbox-check-color: $cyan-aa-small;
-$radio-color: $cyan-aa-small;
-$toggle-inactive-color: $gray-aa-large;
-$toggle-active-color: $cyan-aa-small;
-$input-field-border-color: $gray-aa-small;
-$input-field-focus-color: $cyan-aa-small;
+$checkbox-border-color: $cyan-aa-small !default;
+$checkbox-check-color: $cyan-aa-small !default;
+$radio-color: $cyan-aa-small !default;
+$toggle-inactive-color: $gray-aa-large !default;
+$toggle-active-color: $cyan-aa-small !default;
+$input-field-border-color: $gray-aa-small !default;
+$input-field-focus-color: $cyan-aa-small !default;
 
 // Select settings
-$select-field-border-color: $gray-aa-small;
-$select-field-focus-color: $cyan-aa-small;
-$select-field-arrow-color: $gray-aa-small;
-$select-field-arrow-focus-color: $cyan-aa-small;
+$select-field-border-color: $gray-aa-small !default;
+$select-field-focus-color: $cyan-aa-small !default;
+$select-field-arrow-color: $gray-aa-small !default;
+$select-field-arrow-focus-color: $cyan-aa-small !default;
 
 // Slider settings
-$slider-field-thumb-color: $cyan-aa-small;
-$slider-field-rail-color: $gray-aa-large;
+$slider-field-thumb-color: $cyan-aa-small !default;
+$slider-field-rail-color: $gray-aa-large !default;
 
 // Accordion settings
-$accordion-heading-background-color: $cyan-aa-small;
-$accordion-heading-foreground-color: $white;
+$accordion-heading-background-color: $cyan-aa-small !default;
+$accordion-heading-foreground-color: $white !default;
 
 // Table settings
-$table-heading-background-color: $gray-aa-small;
-$table-heading-foreground-color: $white;
-$table-odd-background-color: $white;
-$table-odd-foreground-color: $black;
-$table-seperator-color: $gray-non-aa-medium;
-$table-even-background-color: $gray-non-aa-light;
-$table-even-foreground-color: $black;
+$table-heading-background-color: $gray-aa-small !default;
+$table-heading-foreground-color: $white !default;
+$table-odd-background-color: $white !default;
+$table-odd-foreground-color: $black !default;
+$table-seperator-color: $gray-non-aa-medium !default;
+$table-even-background-color: $gray-non-aa-light !default;
+$table-even-foreground-color: $black !default;
 
 // List settings
-$list-point-background-color: $gray-aa-small;
-$list-point-foreground-color: $white;
-$list-association-color: $gray-non-aa;
+$list-point-background-color: $gray-aa-small !default;
+$list-point-foreground-color: $white !default;
+$list-association-color: $gray-non-aa !default;
 
 // Tooltip settings
-$tooltip-indicator-color: $gray-aa-small;
-$tooltip-background-color: $cyan-aa-small;
-$tooltip-foreground-color: $white;
+$tooltip-indicator-color: $gray-aa-small !default;
+$tooltip-background-color: $cyan-aa-small !default;
+$tooltip-foreground-color: $white !default;
 
 // Pagination settings
-$active-page-background-color: $cyan-aa-small;
-$active-page-foreground-color: $white;
+$active-page-background-color: $cyan-aa-small !default;
+$active-page-foreground-color: $white !default;
 
 // Progress bar settings
-$progress-completed-background-color: $cyan-aa-small;
-$progress-completed-foreground-color: $white;
-$progress-current-step-background-color: $white;
-$progress-current-step-foreground-color: $black;
-$progress-current-step-border-color: $cyan-aa-small;
-$remaining-steps-background-color: $gray-aa-small;
-$remaining-steps-foreground-color: $white;
+$progress-completed-background-color: $cyan-aa-small !default;
+$progress-completed-foreground-color: $white !default;
+$progress-current-step-background-color: $white !default;
+$progress-current-step-foreground-color: $black !default;
+$progress-current-step-border-color: $cyan-aa-small !default;
+$remaining-steps-background-color: $gray-aa-small !default;
+$remaining-steps-foreground-color: $white !default;
 
 // Notification settings
-$new-color: $cyan-aa-small;
-$info-color: $gray-aa-small;
-$warning-color: $orange-aa-small;
-$success-color: $green-aa-small;
-$error-color: $red-aa-small;
+$new-color: $cyan-aa-small !default;
+$info-color: $gray-aa-small !default;
+$warning-color: $orange-aa-small !default;
+$success-color: $green-aa-small !default;
+$error-color: $red-aa-small !default;
 
 // Card settings
-$card-date-background-color: $cyan-aa-small;
-$card-date-foreground-color: $white;
+$card-date-background-color: $cyan-aa-small !default;
+$card-date-foreground-color: $white !default;
 
 // Carousel settings
-$carousel-inactive-dot-color: $gray-aa-small;
-$carousel-active-dot-color: $cyan-aa-small;
+$carousel-inactive-dot-color: $gray-aa-small !default;
+$carousel-active-dot-color: $cyan-aa-small !default;
 
 // Date picker settings
-$selected-date-background-color: $cyan-aa-small;
-$selected-date-foreground-color: $white;
-$selected-dates-range-color: $gray-non-aa;
-$selected-dates-range-hover-background-color: $gray-aa-small;
-$selected-dates-range-hover-foreground-color: $white;
-$date-range-picker-to-background-color: $gray-non-aa;
-$date-range-picker-to-foreground-color: $black;
-$days-of-week-color: $cyan-aa-small;
+$selected-date-background-color: $cyan-aa-small !default;
+$selected-date-foreground-color: $white !default;
+$selected-dates-range-color: $gray-non-aa !default;
+$selected-dates-range-hover-background-color: $gray-aa-small !default;
+$selected-dates-range-hover-foreground-color: $white !default;
+$date-range-picker-to-background-color: $gray-non-aa !default;
+$date-range-picker-to-foreground-color: $black !default;
+$days-of-week-color: $cyan-aa-small !default;
 
 // Footer settings
-$footer-background-color: $cyan-aa-small;
-$footer-foreground-color: $white;
+$footer-background-color: $cyan-aa-small !default;
+$footer-foreground-color: $white !default;
