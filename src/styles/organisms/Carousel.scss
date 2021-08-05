@@ -67,6 +67,7 @@
                 position: absolute;
                 width: 100%;
                 padding: 0 1rem 0;
+                text-align: center;
 
                 @include media-breakpoint-down(sm) {
                     height: 32%;

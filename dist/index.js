@@ -244,6 +244,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Icon": () => (/* reexport */ Icon),
   "Label": () => (/* reexport */ Label),
   "List": () => (/* reexport */ List),
+  "Modal": () => (/* reexport */ Modal),
   "Notification": () => (/* reexport */ Notification),
   "Pagination": () => (/* reexport */ Pagination),
   "ProgressBar": () => (/* reexport */ ProgressBar),
@@ -1320,6 +1321,161 @@ var Carousel = /** @class */ (function (_super) {
 }(react.Component));
 
 
+;// CONCATENATED MODULE: ./src/helpers/scroll-lock/scroll-lock.ts
+// Helpful function to enable and disable scrolling of body. Useful for when hamburger menu or modal pop up occurs.
+var body = document.querySelector('body');
+var scrollPosition = 0;
+var scrollLock = {
+    enable: function () {
+        scrollPosition = window.pageYOffset;
+        if (body) {
+            body.style.overflow = 'hidden';
+            body.style.position = 'fixed';
+            body.style.top = "-" + scrollPosition + "px";
+            body.style.width = '100%';
+        }
+    },
+    disable: function () {
+        if (body) {
+            body.style.removeProperty('overflow');
+            body.style.removeProperty('position');
+            body.style.removeProperty('top');
+            body.style.removeProperty('width');
+        }
+        window.scrollTo(0, scrollPosition);
+    }
+};
+/* harmony default export */ const scroll_lock = (scrollLock);
+
+;// CONCATENATED MODULE: ./src/helpers/focus-trap/focus-trap.ts
+var focusTrap = {
+    enable: function (modal) {
+        // Add all the commonly focusable elements for inside the modal
+        var focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        if (modal) {
+            // Get the first element that can focused inside modal
+            var firstFocusableElement_1 = modal.querySelectorAll(focusableElements)[0];
+            var focusableContent = modal.querySelectorAll(focusableElements);
+            // Get the last element that can be focused inside modal
+            var lastFocusableElement_1 = focusableContent[focusableContent.length - 1];
+            document.addEventListener('keydown', function (e) {
+                var isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+                // Break early if key pressed is not tab
+                if (!isTabPressed) {
+                    return;
+                }
+                // If shift key pressed for shift + tab combination
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusableElement_1) {
+                        // Set focus on the the last focusable element
+                        lastFocusableElement_1.focus();
+                        e.preventDefault();
+                    }
+                    // If tab key is pressed
+                }
+                else {
+                    // If focus has reached the last focusable element then return focus to the first focusable element
+                    if (document.activeElement === lastFocusableElement_1) {
+                        firstFocusableElement_1.focus();
+                        e.preventDefault();
+                    }
+                }
+            });
+            // Set focus to first focusable element within the modal
+            firstFocusableElement_1.focus();
+        }
+    },
+    // Remove key listener for tab behaviour
+    disable: function (priorFocusedElement) {
+        document.removeEventListener('keydown', function () {
+            // Restore focus back to element which was focused prior to modal
+            if (priorFocusedElement) {
+                priorFocusedElement.focus();
+            }
+        });
+    }
+};
+/* harmony default export */ const focus_trap = (focusTrap);
+
+;// CONCATENATED MODULE: ./src/Components/Organisms/Modal/Modal.tsx
+var Modal_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+var Modal = /** @class */ (function (_super) {
+    Modal_extends(Modal, _super);
+    function Modal(props) {
+        return _super.call(this, props) || this;
+    }
+    Modal.prototype.componentDidMount = function () {
+        var _a = this.props, visible = _a.visible, closeModalCallBack = _a.closeModalCallBack;
+        var modal = document.querySelector(".modal");
+        var modalCover = document.querySelector(".modal-cover");
+        var modalClose = document.querySelector(".close-modal");
+        // Get the prior focused element before the modal is opened
+        var priorFocusedElement = document.activeElement && document.activeElement;
+        if (modal && visible) {
+            // Lock the scrollability of body
+            scroll_lock.enable();
+            // Lock the focus to elements within the modal and focus on first element
+            focus_trap.enable(modal);
+        }
+        if (modalCover && modalClose && priorFocusedElement) {
+            modalClose.addEventListener("click", function () {
+                // Unlock the scrollability of body
+                scroll_lock.disable();
+                // Remove lock on focus within modal elements
+                focus_trap.disable(priorFocusedElement);
+                // Hide modal by call backing to parent compontent
+                closeModalCallBack();
+            });
+        }
+    };
+    Modal.prototype.render = function () {
+        var _a = this.props, modalStyle = _a.modalStyle, image = _a.image, heading = _a.heading, body = _a.body, callToActionLink = _a.callToActionLink, callToActionText = _a.callToActionText, visible = _a.visible;
+        return (visible &&
+            react.createElement("div", { className: "modal-cover" },
+                react.createElement("div", { className: "modal" },
+                    react.createElement("button", { className: "close-modal" },
+                        react.createElement("i", { className: "las la-times sm inverted" })),
+                    react.createElement("div", { className: "modal-content " + (modalStyle ? modalStyle : 'no-image') }, modalStyle !== "side-by-side" ?
+                        react.createElement("div", { className: "modal-content-wrapper", style: {
+                                backgroundImage: "url(" + image + ")"
+                            } },
+                            react.createElement("div", { className: "content" },
+                                react.createElement("h3", { className: "" + (modalStyle == "full-image" ? 'inverted' : '') }, heading),
+                                react.createElement("p", { className: "" + (modalStyle == "full-image" ? 'inverted' : '') }, body),
+                                react.createElement("div", { className: "button-container" },
+                                    react.createElement("a", { className: "button cta " + (modalStyle == "full-image" ? 'inverted' : ''), href: callToActionLink }, callToActionText))))
+                        :
+                            react.createElement(react.Fragment, null,
+                                react.createElement("div", { className: "content" },
+                                    react.createElement("h3", null, heading),
+                                    react.createElement("p", null, body),
+                                    react.createElement("div", { className: "button-container" },
+                                        react.createElement("a", { className: "button cta", href: callToActionLink }, callToActionText))),
+                                react.createElement("div", { className: "image", style: {
+                                        backgroundImage: "url(" + image + ")"
+                                    } }))))));
+    };
+    return Modal;
+}(react.Component));
+
+
 ;// CONCATENATED MODULE: ./src/index.ts
 
 // Export Atoms
@@ -1340,6 +1496,7 @@ var Carousel = /** @class */ (function (_super) {
 
 
 // Export Organisms
+
 
 
 
