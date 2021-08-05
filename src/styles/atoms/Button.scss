@@ -3,6 +3,7 @@
 button {
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     padding: $button-md-padding;
     cursor: pointer;
     white-space: nowrap;
@@ -46,7 +47,7 @@ button {
     &.cta {
         border: none;
         background-color: $transparent;
-        padding: 0.75rem 0.9rem 0.75rem 0;
+        padding: $button-cta-padding;
         font-weight: 700;
 
         &::after {
