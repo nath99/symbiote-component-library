@@ -25,3 +25,4 @@ export * from './Components/Organisms/Footer/Footer';
 export * from './Components/Organisms/Hero/Hero';
 export * from './Components/Organisms/Notification/Notification';
 export * from './Components/Organisms/Carousel/Carousel';
+export * from './Components/Organisms/Modal/Modal';
