@@ -26,6 +26,12 @@ $body-background-color: $gray-non-aa-lightest !default;
 
 // Button settings
 $button-font: 'Body', sans-serif !default;
+$button-border-radius: 0.25rem !default;
+$button-xs-padding: 0.0625rem 0.3rem !default;
+$button-sm-padding: 0.3rem 0.625rem !default;
+$button-md-padding: 0.75rem 0.9rem !default;
+$button-lg-padding: 0.9rem 1.25rem !default;
+
 $primary-background-color: $cyan-aa-small !default;
 $primary-foreground-color: $white !default;
 
