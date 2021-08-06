@@ -1449,23 +1449,23 @@ var Modal = /** @class */ (function (_super) {
         var _a = this.props, modalStyle = _a.modalStyle, image = _a.image, heading = _a.heading, body = _a.body, callToActionLink = _a.callToActionLink, callToActionText = _a.callToActionText, visible = _a.visible;
         return (visible &&
             react.createElement("div", { className: "modal-cover" },
-                react.createElement("div", { className: "modal" },
+                react.createElement("div", { className: "modal", role: "dialog", "aria-labelledby": "modal-heading", "aria-describedby": "modal-body", "aria-modal": "true" },
                     react.createElement("button", { className: "close-modal" },
                         react.createElement("i", { className: "las la-times sm inverted" })),
-                    react.createElement("div", { className: "modal-content " + (modalStyle ? modalStyle : 'no-image') }, modalStyle !== "side-by-side" ?
+                    react.createElement("div", { className: "modal-content " + modalStyle }, modalStyle !== "side-by-side" && modalStyle !== "top-to-bottom" ?
                         react.createElement("div", { className: "modal-content-wrapper", style: {
                                 backgroundImage: "url(" + image + ")"
                             } },
                             react.createElement("div", { className: "content" },
-                                react.createElement("h3", { className: "" + (modalStyle == "full-image" ? 'inverted' : '') }, heading),
-                                react.createElement("p", { className: "" + (modalStyle == "full-image" ? 'inverted' : '') }, body),
+                                react.createElement("h3", { id: "modal-heading", className: "" + (modalStyle == "full-image" ? 'inverted' : '') }, heading),
+                                react.createElement("p", { id: "modal-body", className: "" + (modalStyle == "full-image" ? 'inverted' : '') }, body),
                                 react.createElement("div", { className: "button-container" },
                                     react.createElement("a", { className: "button cta " + (modalStyle == "full-image" ? 'inverted' : ''), href: callToActionLink }, callToActionText))))
                         :
                             react.createElement(react.Fragment, null,
                                 react.createElement("div", { className: "content" },
-                                    react.createElement("h3", null, heading),
-                                    react.createElement("p", null, body),
+                                    react.createElement("h3", { id: "modal-heading" }, heading),
+                                    react.createElement("p", { id: "modal-body" }, body),
                                     react.createElement("div", { className: "button-container" },
                                         react.createElement("a", { className: "button cta", href: callToActionLink }, callToActionText))),
                                 react.createElement("div", { className: "image", style: {

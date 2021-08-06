@@ -1,6 +1,6 @@
 import React from "react";
 interface Props {
-    modalStyle?: "full-image" | "side-by-side";
+    modalStyle: "full-image" | "side-by-side" | "top-to-bottom" | "no-image";
     image?: string;
     heading?: string;
     body?: string;

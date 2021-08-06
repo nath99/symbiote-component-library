@@ -2,10 +2,8 @@ import React from "react";
 import scrollLock from '../../../helpers/scroll-lock/scroll-lock';
 import focusTrap from '../../../helpers/focus-trap/focus-trap';
 
-//TO DO: Add side by side layout
-
 interface Props {
-    modalStyle?: "full-image" | "side-by-side"
+    modalStyle: "full-image" | "side-by-side" | "top-to-bottom" | "no-image",
     image?: string,
     heading?: string,
     body?: string,
@@ -66,19 +64,19 @@ class Modal extends React.Component<Props> {
         return (
             visible &&
                 <div className="modal-cover">
-                    <div className="modal">
+                    <div className="modal" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-body" aria-modal="true">
                         <button className="close-modal">
                             <i className="las la-times sm inverted"></i>
                         </button>
 
-                        <div className={`modal-content ${modalStyle ? modalStyle : 'no-image'}`}>
-                           {modalStyle !=="side-by-side" ?
+                        <div className={`modal-content ${modalStyle}`}>
+                           {modalStyle !== "side-by-side" && modalStyle !== "top-to-bottom" ?
                                 <div className="modal-content-wrapper" style={{
                                     backgroundImage: `url(${image})`
                                 }}>
                                     <div className="content">
-                                        <h3 className={`${modalStyle == "full-image" ? 'inverted' : ''}`}>{heading}</h3>
-                                        <p className={`${modalStyle == "full-image" ? 'inverted' : ''}`}>{body}</p>
+                                        <h3 id="modal-heading" className={`${modalStyle == "full-image" ? 'inverted' : ''}`}>{heading}</h3>
+                                        <p id="modal-body" className={`${modalStyle == "full-image" ? 'inverted' : ''}`}>{body}</p>
                                         <div className="button-container">
                                             <a className={`button cta ${modalStyle == "full-image" ? 'inverted' : ''}`} href={callToActionLink}>{callToActionText}</a>
                                         </div>
@@ -87,8 +85,8 @@ class Modal extends React.Component<Props> {
                             :
                                 <React.Fragment>
                                     <div className="content">
-                                        <h3>{heading}</h3>
-                                        <p>{body}</p>
+                                        <h3 id="modal-heading">{heading}</h3>
+                                        <p id="modal-body">{body}</p>
                                         <div className="button-container">
                                             <a className="button cta" href={callToActionLink}>{callToActionText}</a>
                                         </div>
