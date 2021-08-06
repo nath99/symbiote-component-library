@@ -5,6 +5,7 @@ import focusTrap from '../../../helpers/focus-trap/focus-trap';
 interface Props {
     modalStyle: "full-image" | "side-by-side" | "top-to-bottom" | "no-image",
     image?: string,
+    altText?: string
     heading?: string,
     body?: string,
     callToActionLink?: string,
@@ -13,9 +14,19 @@ interface Props {
     visible: boolean
 }
 
-class Modal extends React.Component<Props> {
+interface State {
+    visible: boolean
+}
+
+class Modal extends React.Component<Props, State> {
+    state: State
+
     constructor(props: Props) {
-        super(props);
+        super(props)
+
+        this.state = {
+            visible: this.props.visible
+        }
     }
 
     componentDidMount() {
@@ -36,7 +47,7 @@ class Modal extends React.Component<Props> {
         }
 
         if (modalCover && modalClose && priorFocusedElement) {
-            modalClose.addEventListener("click", function () {
+            modalClose.addEventListener("click", () => {
                 // Unlock the scrollability of body
                 scrollLock.disable();
 
@@ -45,6 +56,11 @@ class Modal extends React.Component<Props> {
 
                 // Hide modal by call backing to parent compontent
                 closeModalCallBack();
+
+                // Fall back for if callback is not supplied, update the state to hide modal
+                this.setState({
+                    visible: false
+                })
             });
         }
 
@@ -54,12 +70,16 @@ class Modal extends React.Component<Props> {
         const {
             modalStyle,
             image,
+            altText,
             heading,
             body,
             callToActionLink,
             callToActionText,
-            visible
         } = this.props;
+
+        const {
+            visible
+        } = this.state;
 
         return (
             visible &&
@@ -71,7 +91,7 @@ class Modal extends React.Component<Props> {
 
                         <div className={`modal-content ${modalStyle}`}>
                            {modalStyle !== "side-by-side" && modalStyle !== "top-to-bottom" ?
-                                <div className="modal-content-wrapper" style={{
+                                <div className="modal-content-wrapper" role="img" aria-label={altText} style={{
                                     backgroundImage: `url(${image})`
                                 }}>
                                     <div className="content">
@@ -91,7 +111,7 @@ class Modal extends React.Component<Props> {
                                             <a className="button cta" href={callToActionLink}>{callToActionText}</a>
                                         </div>
                                     </div>
-                                    <div className="image" style={{
+                                    <div className="image" role="img" aria-label={altText} style={{
                                         backgroundImage: `url(${image})`
                                     }}></div>
                                 </React.Fragment>

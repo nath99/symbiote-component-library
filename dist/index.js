@@ -1419,9 +1419,14 @@ var Modal_extends = (undefined && undefined.__extends) || (function () {
 var Modal = /** @class */ (function (_super) {
     Modal_extends(Modal, _super);
     function Modal(props) {
-        return _super.call(this, props) || this;
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            visible: _this.props.visible
+        };
+        return _this;
     }
     Modal.prototype.componentDidMount = function () {
+        var _this = this;
         var _a = this.props, visible = _a.visible, closeModalCallBack = _a.closeModalCallBack;
         var modal = document.querySelector(".modal");
         var modalCover = document.querySelector(".modal-cover");
@@ -1442,18 +1447,23 @@ var Modal = /** @class */ (function (_super) {
                 focus_trap.disable(priorFocusedElement);
                 // Hide modal by call backing to parent compontent
                 closeModalCallBack();
+                // Fall back for if callback is not supplied, update the state to hide modal
+                _this.setState({
+                    visible: false
+                });
             });
         }
     };
     Modal.prototype.render = function () {
-        var _a = this.props, modalStyle = _a.modalStyle, image = _a.image, heading = _a.heading, body = _a.body, callToActionLink = _a.callToActionLink, callToActionText = _a.callToActionText, visible = _a.visible;
+        var _a = this.props, modalStyle = _a.modalStyle, image = _a.image, altText = _a.altText, heading = _a.heading, body = _a.body, callToActionLink = _a.callToActionLink, callToActionText = _a.callToActionText;
+        var visible = this.state.visible;
         return (visible &&
             react.createElement("div", { className: "modal-cover" },
                 react.createElement("div", { className: "modal", role: "dialog", "aria-labelledby": "modal-heading", "aria-describedby": "modal-body", "aria-modal": "true" },
                     react.createElement("button", { className: "close-modal" },
                         react.createElement("i", { className: "las la-times sm inverted" })),
                     react.createElement("div", { className: "modal-content " + modalStyle }, modalStyle !== "side-by-side" && modalStyle !== "top-to-bottom" ?
-                        react.createElement("div", { className: "modal-content-wrapper", style: {
+                        react.createElement("div", { className: "modal-content-wrapper", role: "img", "aria-label": altText, style: {
                                 backgroundImage: "url(" + image + ")"
                             } },
                             react.createElement("div", { className: "content" },
@@ -1468,7 +1478,7 @@ var Modal = /** @class */ (function (_super) {
                                     react.createElement("p", { id: "modal-body" }, body),
                                     react.createElement("div", { className: "button-container" },
                                         react.createElement("a", { className: "button cta", href: callToActionLink }, callToActionText))),
-                                react.createElement("div", { className: "image", style: {
+                                react.createElement("div", { className: "image", role: "img", "aria-label": altText, style: {
                                         backgroundImage: "url(" + image + ")"
                                     } }))))));
     };
