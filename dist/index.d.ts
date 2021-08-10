@@ -14,6 +14,7 @@ export * from './Components/Molecules/Accordion/Accordion';
 export * from './Components/Molecules/Breadcrumbs/Breadcrumbs';
 export * from './Components/Molecules/Pagination/Pagination';
 export * from './Components/Molecules/ProgressBar/ProgressBar';
+export * from './Components/Molecules/PageAlert/PageAlert';
 export * from './Components/Organisms/Card/Card';
 export * from './Components/Organisms/Footer/Footer';
 export * from './Components/Organisms/Hero/Hero';

@@ -18,6 +18,7 @@ export * from './Components/Molecules/Accordion/Accordion';
 export * from './Components/Molecules/Breadcrumbs/Breadcrumbs';
 export * from './Components/Molecules/Pagination/Pagination';
 export * from './Components/Molecules/ProgressBar/ProgressBar';
+export * from './Components/Molecules/PageAlert/PageAlert';
 
 // Export Organisms
 export * from './Components/Organisms/Card/Card';
