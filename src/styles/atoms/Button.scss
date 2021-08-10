@@ -1,6 +1,6 @@
 @import '../variables/all-variables';
 
-button {
+button, a.button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +49,7 @@ button {
         background-color: $transparent;
         padding: $button-cta-padding;
         font-weight: 700;
+        align-items: baseline;
 
         &::after {
             height: 0.125rem;
