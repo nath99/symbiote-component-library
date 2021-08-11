@@ -7,9 +7,9 @@ import DateRangePicker from '../../../libs/vanillajs-datepicker/@types/DateRange
 
 interface Props {
     type: "date" | "range"
+    label?: string
     id: string
     className?: string
-    dateRangeTitle?: string
 }
 
 class DatePicker extends React.Component<Props> {
@@ -39,16 +39,21 @@ class DatePicker extends React.Component<Props> {
     render() {
         const {
             type,
+            label,
             className,
-            id,
-            dateRangeTitle
+            id
         } = this.props;
 
         return (
-            type == "date" ? <input type="text" className={`date-picker ${className}`} id={id}></input> :
+            type == "date" ?
+                <React.Fragment>
+                    <label htmlFor={id}>{label}</label>
+                    <input type="text" className={`date-picker ${className ? className : ""}`} id={id}></input>
+                </React.Fragment>
+            :
             type == "range" &&
-                <div id={id} className={`date-range-picker ${className}`}>
-                    <label htmlFor={id}>{dateRangeTitle}</label>
+                <div id={id} className={`date-range-picker ${className ? className : ""}`}>
+                    <label htmlFor={id}>{label}</label>
                     <input className="from-date" type="text" name="start"></input>
                     <span>to</span>
                     <input className="to-date" type="text" name="end"></input>

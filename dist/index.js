@@ -4341,14 +4341,18 @@ var DatePicker = /** @class */ (function (_super) {
         }
     };
     DatePicker.prototype.render = function () {
-        var _a = this.props, type = _a.type, className = _a.className, id = _a.id, dateRangeTitle = _a.dateRangeTitle;
-        return (type == "date" ? react.createElement("input", { type: "text", className: "date-picker " + className, id: id }) :
-            type == "range" &&
-                react.createElement("div", { id: id, className: "date-range-picker " + className },
-                    react.createElement("label", { htmlFor: id }, dateRangeTitle),
-                    react.createElement("input", { className: "from-date", type: "text", name: "start" }),
-                    react.createElement("span", null, "to"),
-                    react.createElement("input", { className: "to-date", type: "text", name: "end" })));
+        var _a = this.props, type = _a.type, label = _a.label, className = _a.className, id = _a.id;
+        return (type == "date" ?
+            react.createElement(react.Fragment, null,
+                react.createElement("label", { htmlFor: id }, label),
+                react.createElement("input", { type: "text", className: "date-picker " + (className ? className : ""), id: id }))
+            :
+                type == "range" &&
+                    react.createElement("div", { id: id, className: "date-range-picker " + (className ? className : "") },
+                        react.createElement("label", { htmlFor: id }, label),
+                        react.createElement("input", { className: "from-date", type: "text", name: "start" }),
+                        react.createElement("span", null, "to"),
+                        react.createElement("input", { className: "to-date", type: "text", name: "end" })));
     };
     return DatePicker;
 }(react.Component));

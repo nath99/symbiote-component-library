@@ -1,9 +1,10 @@
 // Include Vanilla JS Datepicker styles
 @import '../libs/vanillajs-datepicker/css/datepicker.css';
 
-.datepicker {
-    .datepicker-cell {
+.date-picker {
+    width: 100%;
 
+    .datepicker-cell {
         &.selected, &.range-start, &.range-end {
             background-color: $selected-date-background-color;
             color: $selected-date-foreground-color;
@@ -42,36 +43,11 @@
     }
 
     input {
-        width: 42.5%;
-
-        border-radius: 0.25rem 0 0 0.25rem;
-        text-align: center;
-
-        @include media-breakpoint-up(md) {
-            width: 45%;
-        }
-
-        &.from-date {
-            border-radius: 0.25rem 0 0 0.25rem;
-        }
-
-        &.to-date {
-            border-radius: 0 0.25rem 0.25rem 0;
-        }
+        width: 40%;
     }
 
     span {
-        width: 15%;
-        margin: 0.33rem 0 1.125rem;
         text-align: center;
-        border-top: 0.0625rem solid $gray-aa-small;
-        border-bottom: 0.0625rem solid $gray-aa-small;
-        padding: 0.49rem;
-        background-color: $date-range-picker-to-background-color;
-        color: $date-range-picker-to-foreground-color;
-
-        @include media-breakpoint-up(md) {
-            width: 10%;
-        }
+        width: 20%;
     }
 }

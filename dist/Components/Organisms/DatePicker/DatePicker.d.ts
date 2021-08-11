@@ -1,9 +1,9 @@
 import React from "react";
 interface Props {
     type: "date" | "range";
+    label?: string;
     id: string;
     className?: string;
-    dateRangeTitle?: string;
 }
 declare class DatePicker extends React.Component<Props> {
     constructor(props: Props);
