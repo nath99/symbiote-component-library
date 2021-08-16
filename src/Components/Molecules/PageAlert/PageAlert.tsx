@@ -35,6 +35,10 @@ class PageAlert extends React.Component<PageAlertProps> {
         return icon;
     }
 
+    close() {
+        this.setState({ open: false });
+    }
+
     render() {
         const {
             title,
