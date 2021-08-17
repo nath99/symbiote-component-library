@@ -928,6 +928,9 @@ var PageAlert = /** @class */ (function (_super) {
         }
         return icon;
     };
+    PageAlert.prototype.close = function () {
+        this.setState({ open: false });
+    };
     PageAlert.prototype.render = function () {
         var _a = this.props, title = _a.title, message = _a.message, status = _a.status;
         var icon = this.getIcon(status);

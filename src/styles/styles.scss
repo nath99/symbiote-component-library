@@ -4,6 +4,7 @@
 @import '../styles/variables/mixins';
 
 // Import core styles
+@import 'core/utilities';
 @import '../styles/core/grid';
 @import '../styles/core/icons';
 @import '../styles/core/normalize';

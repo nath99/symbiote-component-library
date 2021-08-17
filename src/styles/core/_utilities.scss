@@ -1,0 +1,66 @@
+// A group of utility classes used for generic spacing throughout the design system.
+// All styles use multiples of a base unit of 0.5em
+
+// Use map for number of utilities?
+$spacer: 0.25rem !default;
+$spacings: (
+    0: 0,
+    1: $spacer,
+    2: $spacer * 2,
+    3: $spacer * 3,
+    4: $spacer * 4,
+    5: $spacer * 5,
+    6: $spacer * 6,
+    7: $spacer * 7,
+    8: $spacer * 8
+) !default;
+
+$utilities: () !default;
+$utilities: map-merge(
+    (
+        'margin': (
+            class: 'm',
+            property: margin,
+            values: map-merge($spacings, (auto: auto))
+        ),
+        'margin-left': (
+            class: 'ml',
+            property: margin-left,
+            values: map-merge($spacings, (auto: auto))
+        ),
+        'margin-right': (
+            class: 'mr',
+            property: margin-right,
+            values: map-merge($spacings, (auto: auto))
+        ),
+        'margin-top': (
+            class: 'mt',
+            property: margin-top,
+            values: map-merge($spacings, (auto: auto))
+        ),
+        'margin-bottom': (
+            class: 'mb',
+            property: margin-bottom,
+            values: map-merge($spacings, (auto: auto))
+        )
+    ),
+    $utilities
+);
+
+@each $key, $utility in $utilities {
+    $class: map-get($utility, 'class');
+    $values: map-get($utility, 'values');
+    $properties: map-get($utility, 'property');
+
+    @if type-of($properties) == "string" {
+        $properties: append((), $properties);
+    }
+
+    @each $valKey, $value in $values {
+        .#{$class}-#{$valKey} {
+            @each $property in $properties {
+                #{$property}: #{$value};
+            }
+        }
+    }
+}

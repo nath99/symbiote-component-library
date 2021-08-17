@@ -9,6 +9,7 @@ declare class PageAlert extends React.Component<PageAlertProps> {
         status: string;
     };
     getIcon(status: string | undefined): string;
+    close(): void;
     render(): JSX.Element;
 }
 export { PageAlert, PageAlertProps };
