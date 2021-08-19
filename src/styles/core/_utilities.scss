@@ -2,7 +2,19 @@
 // All styles use multiples of a base unit of 0.5em
 
 // Use map for number of utilities?
-$spacer: 0.25rem !default;
+$spacer: 0.5rem !default;
+$negativeSpacings: (
+    n1: -$spacer,
+    n2: -$spacer * 2,
+    n3: -$spacer * 3,
+    n4: -$spacer * 4,
+    n5: -$spacer * 5,
+    n6: -$spacer * 6,
+    n7: -$spacer * 7,
+    n8: -$spacer * 8,
+    n9: -$spacer * 9,
+    n10: -$spacer * 10
+) !default;
 $spacings: (
     0: 0,
     1: $spacer,
@@ -12,36 +24,114 @@ $spacings: (
     5: $spacer * 5,
     6: $spacer * 6,
     7: $spacer * 7,
-    8: $spacer * 8
+    8: $spacer * 8,
+    9: $spacer * 9,
+    10: $spacer * 10
 ) !default;
 
+// Using a default, then map-merge makes it easy to overwrite or add custom styles.
 $utilities: () !default;
 $utilities: map-merge(
     (
         'margin': (
             class: 'm',
             property: margin,
-            values: map-merge($spacings, (auto: auto))
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
         ),
         'margin-left': (
             class: 'ml',
             property: margin-left,
-            values: map-merge($spacings, (auto: auto))
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
         ),
         'margin-right': (
             class: 'mr',
             property: margin-right,
-            values: map-merge($spacings, (auto: auto))
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
         ),
         'margin-top': (
             class: 'mt',
             property: margin-top,
-            values: map-merge($spacings, (auto: auto))
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
         ),
         'margin-bottom': (
             class: 'mb',
             property: margin-bottom,
-            values: map-merge($spacings, (auto: auto))
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
+        ),
+        'margin-x': (
+            class: 'mx',
+            property: margin-left margin-right,
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
+        ),
+        'margin-y': (
+            class: 'my',
+            property: margin-top margin-bottom,
+            values: map-merge((auto: auto), map-merge($spacings, $negativeSpacings))
+        ),
+        'padding': (
+            class: 'p',
+            property: padding,
+            values: $spacings
+        ),
+        'padding-left': (
+            class: 'pl',
+            property: padding-left,
+            values: $spacings
+        ),
+        'padding-right': (
+            class: 'pr',
+            property: padding-right,
+            values: $spacings
+        ),
+        'padding-top': (
+            class: 'pt',
+            property: padding-top,
+            values: $spacings
+        ),
+        'padding-bottom': (
+            class: 'pb',
+            property: padding-bottom,
+            values: $spacings
+        ),
+        'padding-x': (
+            class: 'px',
+            property: padding-left padding-right,
+            values: $spacings
+        ),
+        'padding-y': (
+            class: 'py',
+            property: padding-top padding-bottom,
+            values: $spacings
+        ),
+        'position': (
+            class: 'pos',
+            property: position,
+            values: (
+                relative: 'relative',
+                absolute: 'absolute',
+                fixed: 'fixed',
+                sticky: 'sticky'
+            )
+        ),
+        'top': (
+            class: 't',
+            property: top,
+            values: map-merge($spacings, $negativeSpacings)
+        ),
+        'bottom': (
+            class: 'b',
+            property: bottom,
+            values: map-merge($spacings, $negativeSpacings)
+        ),
+        'left': (
+            class: 'l',
+            property: left,
+            values: map-merge($spacings, $negativeSpacings)
+        ),
+        'right': (
+            class: 'r',
+            property: right,
+            values: map-merge($spacings, $negativeSpacings)
         )
     ),
     $utilities
