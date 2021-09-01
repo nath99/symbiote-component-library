@@ -2995,6 +2995,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Radio": () => (/* reexport */ Radio),
   "Select": () => (/* reexport */ Select),
   "Slider": () => (/* reexport */ Slider),
+  "StackedContent": () => (/* reexport */ StackedContent),
   "Table": () => (/* reexport */ Table),
   "Toggle": () => (/* reexport */ Toggle),
   "Tooltip": () => (/* reexport */ Tooltip)
@@ -3692,6 +3693,158 @@ var PageAlert = /** @class */ (function (_super) {
 }(react.Component));
 
 
+;// CONCATENATED MODULE: ./src/Components/Molecules/StackedContent/StackedContentTwo.tsx
+var StackedContentTwo_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var StackedContentTwo = /** @class */ (function (_super) {
+    StackedContentTwo_extends(StackedContentTwo, _super);
+    function StackedContentTwo() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    StackedContentTwo.prototype.render = function () {
+        var _a = this.props, className = _a.className, backgroundColors = _a.backgroundColors, foregroundColors = _a.foregroundColors, content = _a.content;
+        return (react.createElement("div", { className: "stacked-content " + (className ? className : "") },
+            react.createElement("div", { className: "content-box" + (!content[0] ? " content-box--empty" : "") + " box-1 col-12 col-md-10", style: { background: "" + backgroundColors[0] } },
+                react.createElement("div", { className: "col-12 col-md-7 col-lg-5 " + (foregroundColors[0] == "inverted" ? "inverted" : "") }, content[0])),
+            react.createElement("div", { className: "content-box" + (!content[1] ? " content-box--empty" : "") + " box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5", style: { background: "" + backgroundColors[1] } },
+                react.createElement("div", { className: "col-12 col-lg-10 " + (foregroundColors[1] == "inverted" ? "inverted" : "") }, content[1]))));
+    };
+    return StackedContentTwo;
+}(react.Component));
+
+
+;// CONCATENATED MODULE: ./src/Components/Molecules/StackedContent/StackedContentThree.tsx
+var StackedContentThree_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var StackedContentThree = /** @class */ (function (_super) {
+    StackedContentThree_extends(StackedContentThree, _super);
+    function StackedContentThree() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    StackedContentThree.prototype.render = function () {
+        var _a = this.props, className = _a.className, backgroundColors = _a.backgroundColors, foregroundColors = _a.foregroundColors, content = _a.content;
+        return (react.createElement("div", { className: "stacked-content " + (className ? className : "") },
+            react.createElement("div", { className: "content-box" + (!content[0] ? " content-box--empty" : "") + " box-1 col-12 col-md-10", style: { background: "" + backgroundColors[0] } },
+                react.createElement("div", { className: "col-12 col-md-7 col-lg-5 " + (foregroundColors[0] == "inverted" ? "inverted" : "") }, content[0])),
+            react.createElement("div", { className: "content-box" + (!content[1] ? " content-box--empty" : "") + " box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5", style: { background: "" + backgroundColors[1] } },
+                react.createElement("div", { className: "col-12 col-lg-10 " + (foregroundColors[1] == "inverted" ? "inverted" : "") }, content[1])),
+            react.createElement("div", { className: "content-box" + (!content[2] ? " content-box--empty" : "") + " box-3 col-12 col-md-6 offset-md-1 col-lg-7 offset-lg-2", style: { background: "" + backgroundColors[2] } },
+                react.createElement("div", { className: "col-12 col-lg-10 " + (foregroundColors[2] == "inverted" ? "inverted" : "") }, content[2]))));
+    };
+    return StackedContentThree;
+}(react.Component));
+
+
+;// CONCATENATED MODULE: ./src/Components/Molecules/StackedContent/StackedContentFour.tsx
+var StackedContentFour_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var StackedContentFour = /** @class */ (function (_super) {
+    StackedContentFour_extends(StackedContentFour, _super);
+    function StackedContentFour() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    StackedContentFour.prototype.render = function () {
+        var className = this.props.className;
+        return (react.createElement("div", { className: "stacked-content " + (className ? className : "") }, "//TODO: Implement 4 stacked content boxes"));
+    };
+    return StackedContentFour;
+}(react.Component));
+
+
+;// CONCATENATED MODULE: ./src/Components/Molecules/StackedContent/StackedContent.tsx
+var StackedContent_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+var StackedContent = /** @class */ (function (_super) {
+    StackedContent_extends(StackedContent, _super);
+    function StackedContent() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.renderStackedContent = function () {
+            var _a = _this.props, className = _a.className, backgroundColors = _a.backgroundColors, foregroundColors = _a.foregroundColors, content = _a.content;
+            var stackedContent;
+            switch (content.length) {
+                case 2:
+                    stackedContent =
+                        react.createElement(StackedContentTwo, { className: className, backgroundColors: [backgroundColors[0], backgroundColors[1]], foregroundColors: [foregroundColors[0], foregroundColors[1]], content: [content[0], content[1]] });
+                    break;
+                case 3:
+                    stackedContent =
+                        react.createElement(StackedContentThree, { className: className, backgroundColors: [backgroundColors[0], backgroundColors[1], backgroundColors[2]], foregroundColors: [foregroundColors[0], foregroundColors[1], foregroundColors[2]], content: [content[0], content[1], content[2]] });
+                    break;
+                case 4:
+                    stackedContent =
+                        react.createElement(StackedContentFour, { className: className, backgroundColors: [backgroundColors[0], backgroundColors[1], backgroundColors[2], backgroundColors[3]], foregroundColors: [foregroundColors[0], foregroundColors[1], foregroundColors[2], foregroundColors[3]], content: [content[0], content[1], content[2], content[3]] });
+                    break;
+            }
+            return stackedContent;
+        };
+        return _this;
+    }
+    StackedContent.prototype.render = function () {
+        return (this.renderStackedContent());
+    };
+    return StackedContent;
+}(react.Component));
+
+
 ;// CONCATENATED MODULE: ./src/Components/Organisms/Card/Card.tsx
 var Card_extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -4376,6 +4529,7 @@ var DatePicker = /** @class */ (function (_super) {
 
 
 // Export Molecules
+
 
 
 

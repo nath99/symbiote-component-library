@@ -62,6 +62,10 @@ button, a.button {
     :hover {
         color: $white !important;
     }
+
+    h1, h2, h3, h4, h5, h6, p, a, b, table, label, ul, ol, li, span, input, textarea {
+        color: $white !important;
+    }
 }
 
 // Non-breaking copy, useful for preventing widows

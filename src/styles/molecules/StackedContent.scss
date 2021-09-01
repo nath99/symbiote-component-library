@@ -1,0 +1,120 @@
+.stacked-content {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+
+    @include media-breakpoint-up(sm) {
+        overflow: visible;
+    }
+
+    @include media-breakpoint-up(md) {
+        margin-left: 0rem;
+        margin-right: 0rem;
+        margin-bottom: 5rem;
+    }
+
+    .content-box {
+        padding: 1.25rem;
+        text-align: left;
+
+        @include media-breakpoint-up(sm) {
+            padding: 1.875rem 1.875rem 1.875rem 1.25rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: 2.75rem;
+        }
+
+        &--empty {
+            &.box-1 {
+                max-width: 58.33333%;
+
+                & + div {
+                    width: 91.66%;
+                    margin-left: 2rem;
+                    margin-top: -20rem;
+                }
+            }
+
+            &.box-2 {
+                margin-left: 23rem;
+                z-index: 0;
+
+                & + div {
+                    margin-top: -19.75rem;
+                }
+            }
+
+            &.box-3 {
+                margin-top: -19.75rem;
+                margin-left: 13rem;
+                z-index: 0;
+            }
+
+
+        }
+    }
+
+    .box-1, .box-2, .box-3 {
+        display: flex;
+        align-items: center;
+
+        @include media-breakpoint-up(md) {
+            min-height: 18.75rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            min-height: 21.875rem;
+        }
+    }
+
+    .box-1 {
+        z-index: 1;
+
+        @include media-breakpoint-only(md) {
+            min-height: 19.375rem;
+        }
+    }
+
+    .box-2 {
+        z-index: 3;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 0rem;
+        }
+
+        @include media-breakpoint-only(md) {
+            margin-top: -18.125rem;
+            min-height: 21.875rem;
+        }
+
+        @include media-breakpoint-only(lg) {
+            margin-top: -18.75rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            margin-top: -18.125rem;
+        }
+    }
+
+    .box-3 {
+        z-index: 2;
+
+        @include media-breakpoint-only(md) {
+            margin-top: -5rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            margin-top: -3.125rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            margin-top: -3.75rem;
+        }
+
+    }
+
+}
+
