@@ -1,5 +1,5 @@
 // Layout settings
-    // Gutter sise
+    // Gutter size
     $grid-gutter-width: 30px;
 
     // grid breakpoints
@@ -48,7 +48,7 @@ $disabled-foreground-color: $white !default;
 $outline-light-color: $white !default;
 $outline-dark-color: $black !default;
 
-// Tyopgraphy settings
+// Typography settings
 $default-text-color: $black !default;
 $link-color: $cyan-aa-small !default;
 
@@ -60,15 +60,15 @@ $navigation-dropdown-foreground-color: $cyan-aa-small !default;
 $navigation-mobile-background: $gray-aa-small !default;
 $navigation-mobile-foreground: $white !default;
 
-// Side navaigation settings
+// Side navigation settings
 $side-navigation-heading-color: $cyan-aa-small !default;
 $side-navigation-link-color: $black !default;
 $side-navigation-hover-color: $cyan-aa-small !default;
 $side-navigation-mobile-border-color: $gray-aa-large !default;
 
-// Breadcumbs settings
-$breadcumbs-background-color: $gray-non-aa-medium !default;
-$breadcumbs-foreground-color: $black !default;
+// Breadcrumbs settings
+$breadcrumbs-background-color: $gray-non-aa-medium !default;
+$breadcrumbs-foreground-color: $black !default;
 
 // Input settings
 $checkbox-border-color: $cyan-aa-small !default;
@@ -98,7 +98,7 @@ $table-heading-background-color: $gray-aa-small !default;
 $table-heading-foreground-color: $white !default;
 $table-odd-background-color: $white !default;
 $table-odd-foreground-color: $black !default;
-$table-seperator-color: $gray-non-aa-medium !default;
+$table-separator-color: $gray-non-aa-medium !default;
 $table-even-background-color: $gray-non-aa-light !default;
 $table-even-foreground-color: $black !default;
 

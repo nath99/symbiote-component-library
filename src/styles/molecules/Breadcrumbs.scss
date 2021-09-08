@@ -9,7 +9,7 @@
     position: sticky;
     top: 4rem;
     z-index: 17;
-    background-color: $breadcumbs-background-color;
+    background-color: $breadcrumbs-background-color;
 
     @include media-breakpoint-down(sm) {
         display: grid;
@@ -20,7 +20,7 @@
         position: relative;
         height: 1rem;
         margin: 0 0.5rem 0 0.5rem;
-        color: $breadcumbs-foreground-color;
+        color: $breadcrumbs-foreground-color;
         white-space: nowrap;
         display: inline-flex;
         flex-direction: row;

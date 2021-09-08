@@ -2994,6 +2994,7 @@ __webpack_require__.d(__webpack_exports__, {
   "ProgressBar": () => (/* reexport */ ProgressBar),
   "Radio": () => (/* reexport */ Radio),
   "Select": () => (/* reexport */ Select),
+  "Separator": () => (/* reexport */ Separator),
   "Slider": () => (/* reexport */ Slider),
   "StackedContent": () => (/* reexport */ StackedContent),
   "Table": () => (/* reexport */ Table),
@@ -3456,6 +3457,36 @@ var Tooltip = /** @class */ (function (_super) {
     };
     return Tooltip;
 }(react.Component));
+
+
+;// CONCATENATED MODULE: ./src/Components/Atoms/Separator/Separator.tsx
+var Separator_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var Separator = /** @class */ (function (_super) {
+    Separator_extends(Separator, _super);
+    function Separator() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Separator.prototype.render = function () {
+        return (react.createElement("div", { className: "my-" + this.props.size.toString() }));
+    };
+    return Separator;
+}(react.Component));
+/* harmony default export */ const Separator_Separator = ((/* unused pure expression or super */ null && (Separator)));
 
 
 ;// CONCATENATED MODULE: ./src/Components/Molecules/Accordion/Accordion.tsx
@@ -4517,6 +4548,7 @@ var DatePicker = /** @class */ (function (_super) {
 ;// CONCATENATED MODULE: ./src/index.ts
 
 // Export Atoms
+
 
 
 

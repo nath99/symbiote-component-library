@@ -1,7 +1,10 @@
+@import '../variables/settings';
+@import '../variables/mixins';
+
 // A group of utility classes used for generic spacing throughout the design system.
 // All styles use multiples of a base unit of 0.5em
 
-// Use map for number of utilities?
+// Use map for number of utilities
 $spacer: 0.5rem !default;
 $negativeSpacings: (
     n1: -$spacer,
@@ -116,22 +119,22 @@ $utilities: map-merge(
         'top': (
             class: 't',
             property: top,
-            values: map-merge($spacings, $negativeSpacings)
+            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
         ),
         'bottom': (
             class: 'b',
             property: bottom,
-            values: map-merge($spacings, $negativeSpacings)
+            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
         ),
         'left': (
             class: 'l',
             property: left,
-            values: map-merge($spacings, $negativeSpacings)
+            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
         ),
         'right': (
             class: 'r',
             property: right,
-            values: map-merge($spacings, $negativeSpacings)
+            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
         )
     ),
     $utilities
@@ -150,6 +153,19 @@ $utilities: map-merge(
         .#{$class}-#{$valKey} {
             @each $property in $properties {
                 #{$property}: #{$value};
+            }
+        }
+    }
+
+        // Loop through each breakpoint and create responsive styles
+    @each $breakpoint, $width in $grid-breakpoints {
+        @include media-breakpoint-up($breakpoint) {
+            @each $valKey, $value in $values {
+                .#{$class}-#{$breakpoint}-#{$valKey} {
+                    @each $property in $properties {
+                        #{$property}: #{$value};
+                    }
+                }
             }
         }
     }

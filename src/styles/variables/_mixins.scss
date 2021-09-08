@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 // Media query breakpoints
-    // Propigates up breakpoints e.g.: media-breakpoint-up(sm) -> sm breakpoint (inclusive) and up
+    // Propagates up breakpoints e.g.: media-breakpoint-up(sm) -> sm breakpoint (inclusive) and up
     @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
         $min: breakpoint-min($name, $breakpoints);
         @if $min {
@@ -13,7 +13,7 @@
         }
     }
 
-    // Propigates down breakpoints e.g.: media-breakpoint-down(sm) -> sm breakpoint (inclusive) and down
+    // Propagates down breakpoints e.g.: media-breakpoint-down(sm) -> sm breakpoint (inclusive) and down
     @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
         $max: breakpoint-max($name, $breakpoints);
         @if $max {
@@ -25,7 +25,7 @@
         }
     }
 
-    // Non-propigating breakpoint e.g.: media-breakpoint-only(sm) -> only within the bounds of the sm breakpoint
+    // Non-propagating breakpoint e.g.: media-breakpoint-only(sm) -> only within the bounds of the sm breakpoint
     @mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
         $min:  breakpoint-min($name, $breakpoints);
         $next: breakpoint-next($name, $breakpoints);
@@ -46,7 +46,7 @@
         }
     }
 
-    // Propigating between the bounds of to breakpoints e.g.: media-breakpoint-between(sm,md) -> only within the bounds of the sm and md breakpoints
+    // Propagating between the bounds of to breakpoints e.g.: media-breakpoint-between(sm,md) -> only within the bounds of the sm and md breakpoints
     @mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
         $min: breakpoint-min($lower, $breakpoints);
         $max: breakpoint-max($upper, $breakpoints);
@@ -270,7 +270,7 @@
             @include media-breakpoint-up($breakpoint, $breakpoints) {
                 // Provide basic `.col-{bp}` classes for equal-width flexbox columns
                 .col#{$infix} {
-                    flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+                    flex: 1 0 0%; // FlexBugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
                 }
 
                 .row-cols#{$infix}-auto > * {
