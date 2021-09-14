@@ -7,7 +7,7 @@ interface Props {
 export default class Separator extends React.Component<Props> {
     render() {
         return (
-            <div className={"my-" + this.props.size.toString()}></div>
+            <div className={"separator my-" + this.props.size.toString()}></div>
         )
     }
 }

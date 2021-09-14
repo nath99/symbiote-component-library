@@ -3482,7 +3482,7 @@ var Separator = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Separator.prototype.render = function () {
-        return (react.createElement("div", { className: "my-" + this.props.size.toString() }));
+        return (react.createElement("div", { className: "separator my-" + this.props.size.toString() }));
     };
     return Separator;
 }(react.Component));
