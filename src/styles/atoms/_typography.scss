@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
 
 // Headings
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Heading', sans-serif;
+    font-family: $heading-font-family;
 }
 
 h1 {
@@ -88,7 +88,7 @@ h5 {
 }
 
 // Body
-p, a, b, table, label, ul, ol, li, span, input, textarea {
+p, a, b, table, label, ul, ol, li, input, textarea {
     font-family: 'Body', sans-serif;
     font-size: $body-font-size;
     line-height: $body-line-height;
