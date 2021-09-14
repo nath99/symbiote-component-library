@@ -1,3 +1,5 @@
+@import '../variables/settings';
+
 // Common rules
 h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
     -webkit-font-smoothing: antialiased;
@@ -11,35 +13,95 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2.48rem;
-    line-height: 1.30;
+    font-size: $heading-1-size;
+    line-height: $heading-1-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $heading-1-md-size;
+        line-height: $heading-1-md-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $heading-1-lg-size;
+        line-height: $heading-1-lg-height;
+    }
 }
 
 h2 {
-    font-size: 2.0rem;
-    line-height: 1.30;
+    font-size: $heading-2-size;
+    line-height: $heading-2-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $heading-2-md-size;
+        line-height: $heading-2-md-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $heading-2-lg-size;
+        line-height: $heading-2-lg-height;
+    }
 }
 
 h3 {
-    font-size: 1.7rem;
-    line-height: 1.30;
+    font-size: $heading-3-size;
+    line-height: $heading-3-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $heading-3-md-size;
+        line-height: $heading-3-md-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $heading-3-lg-size;
+        line-height: $heading-3-lg-height;
+    }
 }
 
 h4 {
-    font-size: 1.40rem;
-    line-height: 1.30;
+    font-size: $heading-4-size;
+    line-height: $heading-4-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $heading-4-md-size;
+        line-height: $heading-4-md-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $heading-4-lg-size;
+        line-height: $heading-4-lg-height;
+    }
 }
 
 h5 {
-    font-size: 1.2rem;
-    line-height: 1.30;
+    font-size: $heading-5-size;
+    line-height: $heading-5-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $heading-5-md-size;
+        line-height: $heading-5-md-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $heading-5-lg-size;
+        line-height: $heading-5-lg-height;
+    }
 }
 
 // Body
 p, a, b, table, label, ul, ol, li, span, input, textarea {
     font-family: 'Body', sans-serif;
-    font-size: 1rem;
-    line-height: 1.45;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-md-font-size;
+        line-height: $body-md-line-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $body-lg-font-size;
+        line-height: $body-lg-line-height;
+    }
 }
 
 

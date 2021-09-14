@@ -119,22 +119,22 @@ $utilities: map-merge(
         'top': (
             class: 't',
             property: top,
-            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
+            values: map-merge((none: unset), map-merge($spacings, $negativeSpacings))
         ),
         'bottom': (
             class: 'b',
             property: bottom,
-            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
+            values: map-merge((none: unset), map-merge($spacings, $negativeSpacings))
         ),
         'left': (
             class: 'l',
             property: left,
-            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
+            values: map-merge((none: unset), map-merge($spacings, $negativeSpacings))
         ),
         'right': (
             class: 'r',
             property: right,
-            values: map-merge((none: none), map-merge($spacings, $negativeSpacings))
+            values: map-merge((none: unset), map-merge($spacings, $negativeSpacings))
         )
     ),
     $utilities
