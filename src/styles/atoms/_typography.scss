@@ -3,6 +3,19 @@
 // Common rules
 body {
     font-family: $body-font-family;
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-md-font-size;
+        line-height: $body-md-line-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $body-lg-font-size;
+        line-height: $body-lg-line-height;
+    }
 }
 
 h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, label {
@@ -89,29 +102,6 @@ h5 {
         font-size: $heading-5-lg-size;
         line-height: $heading-5-lg-height;
     }
-}
-
-// Body
-p, a, b, table, label, ul, ol, li, input, textarea {
-    font-family: $body-font-family;
-    font-size: $body-font-size;
-    line-height: $body-line-height;
-
-    @include media-breakpoint-up(md) {
-        font-size: $body-md-font-size;
-        line-height: $body-md-line-height;
-    }
-
-    @include media-breakpoint-up(lg) {
-        font-size: $body-lg-font-size;
-        line-height: $body-lg-line-height;
-    }
-}
-
-
-// Links
-a {
-
 }
 
 // Buttons

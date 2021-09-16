@@ -4,46 +4,46 @@
 // Modify or replace these colors to match your branding. These values are referenced by _settings.scss, so if the below palette is modified, ensure that respective references are updated.
 
 //Red
-$red-aa-large: #EA4D4D;
-$red-aa-small: #D93636;
+$red-aa-large: #EA4D4D !default;
+$red-aa-small: #D93636 !default;
 
 //Orange
-$orange-aa-large: #D67124;
-$orange-aa-small: #C15701;
+$orange-aa-large: #D67124 !default;
+$orange-aa-small: #C15701 !default;
 
 //Green
-$green-aa-large: #3BA567;
-$green-aa-small: #32864F;
+$green-aa-large: #3BA567 !default;
+$green-aa-small: #32864F !default;
 
 // Cyan
-$cyan-aa-large: #0196D5;
-$cyan-aa-small: #267CB5;
+$cyan-aa-large: #0196D5 !default;
+$cyan-aa-small: #267CB5 !default;
 
 // Blue
-$blue-aa-large: #667FFF;
-$blue-aa-small: #4766FF;
+$blue-aa-large: #667FFF !default;
+$blue-aa-small: #4766FF !default;
 
 // Purple
-$purple-aa-large: #9b70FF;
-$purple-aa-small: #835ED9;
+$purple-aa-large: #9b70FF !default;
+$purple-aa-small: #835ED9 !default;
 
 // Violet
-$violet-aa-large: #bb6CE5;
-$violet-aa-small: #A054C9;
+$violet-aa-large: #bb6CE5 !default;
+$violet-aa-small: #A054C9 !default;
 
 // Gray
-$gray-aa-large: #949494;
-$gray-aa-small: #767676;
-$gray-non-aa: #E6E6E6; // Only used for non-essential items
-$gray-non-aa-medium: #F0F0F0; // Only used for non-essential items
-$gray-non-aa-light: #F2F2F2; // Only used for non-essential items
-$gray-non-aa-lightest: #F7F7F7; // Only used for non-essential items
+$gray-aa-large: #949494 !default;
+$gray-aa-small: #767676 !default;
+$gray-non-aa: #E6E6E6 !default; // Only used for non-essential items
+$gray-non-aa-medium: #F0F0F0 !default; // Only used for non-essential items
+$gray-non-aa-light: #F2F2F2 !default; // Only used for non-essential items
+$gray-non-aa-lightest: #F7F7F7 !default; // Only used for non-essential items
 
 // Black
-$black: #000000;
+$black: #000000 !default;
 
 // White
-$white: #ffffff;
+$white: #ffffff !default;
 
 // Transparent
-$transparent: rgba(0,0,0,0);
+$transparent: rgba(0,0,0,0) !default;
