@@ -1,10 +1,14 @@
 @import '../variables/settings';
 
 // Common rules
-h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, span, label {
+body {
+    font-family: $body-font-family;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, label {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: $default-text-color;
+    // color: $default-text-color;
 }
 
 // Headings
@@ -89,7 +93,7 @@ h5 {
 
 // Body
 p, a, b, table, label, ul, ol, li, input, textarea {
-    font-family: 'Body', sans-serif;
+    font-family: $body-font-family;
     font-size: $body-font-size;
     line-height: $body-line-height;
 
@@ -113,9 +117,9 @@ a {
 // Buttons
 button, a.button {
     text-decoration: none;
-    font-size: 0.875rem;
-    line-height: 1.45;
-    font-family: $button-font;
+    font-size: $button-font-size;
+    line-height: $button-line-height;
+    font-family: $button-font-family;
 }
 
 .inverted {
