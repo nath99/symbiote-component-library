@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 require('../../../libs/swiped-events-1.1.4/swiped-events.min.js');
 
 interface Slide {

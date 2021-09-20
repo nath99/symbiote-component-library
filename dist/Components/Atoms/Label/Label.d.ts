@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 interface LabelProps {
     labelText: string;
     labelStatus: 'success' | 'warning' | 'error' | 'new' | 'info';

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 interface ButtonProps {
     type?: 'primary' | 'secondary' | 'tertiary';
     size?: 'lg' | 'md' | 'sm' | 'xs';

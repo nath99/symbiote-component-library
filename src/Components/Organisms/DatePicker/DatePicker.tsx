@@ -1,7 +1,7 @@
 
 
 
-import React from "react";
+import * as React from "react";
 import Datepicker from '../../../libs/vanillajs-datepicker/@types/Datepicker';
 import DateRangePicker from '../../../libs/vanillajs-datepicker/@types/DateRangePicker';
 

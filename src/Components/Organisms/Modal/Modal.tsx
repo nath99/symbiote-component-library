@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import scrollLock from '../../../helpers/scroll-lock/scroll-lock';
 import focusTrap from '../../../helpers/focus-trap/focus-trap';
 

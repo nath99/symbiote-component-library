@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { StackedContentTwo } from "./StackedContentTwo";
 import { StackedContentThree } from "./StackedContentThree";
 import { StackedContentFour } from "./StackedContentFour";
