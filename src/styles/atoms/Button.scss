@@ -100,4 +100,8 @@ button, a.button {
     &.lg {
         padding: $button-lg-padding;
     }
+
+    > span {
+        line-height: 1;
+    }
 }

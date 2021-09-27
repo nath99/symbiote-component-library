@@ -240,6 +240,7 @@
     }
 
     @mixin make-col($size, $columns: 12) {
+        position: relative;
         flex: 0 0 auto;
         width: percentage(math.div($size, $columns));
     }

@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $heading-font-family;
 }
 
-h1 {
+.h1 {
     font-size: $heading-1-size;
     line-height: $heading-1-height;
 
@@ -44,7 +44,11 @@ h1 {
     }
 }
 
-h2 {
+h1 {
+    @extend .h1;
+}
+
+.h2 {
     font-size: $heading-2-size;
     line-height: $heading-2-height;
 
@@ -59,7 +63,11 @@ h2 {
     }
 }
 
-h3 {
+h2 {
+    @extend .h2;
+}
+
+.h3 {
     font-size: $heading-3-size;
     line-height: $heading-3-height;
 
@@ -74,7 +82,11 @@ h3 {
     }
 }
 
-h4 {
+h3 {
+    @extend .h3;
+}
+
+.h4 {
     font-size: $heading-4-size;
     line-height: $heading-4-height;
 
@@ -89,7 +101,11 @@ h4 {
     }
 }
 
-h5 {
+h4 {
+    @extend .h4;
+}
+
+.h5 {
     font-size: $heading-5-size;
     line-height: $heading-5-height;
 
@@ -101,6 +117,70 @@ h5 {
     @include media-breakpoint-up(lg) {
         font-size: $heading-5-lg-size;
         line-height: $heading-5-lg-height;
+    }
+}
+
+h5 {
+    @extend .h5;
+}
+
+.body-1 {
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-md-font-size;
+        line-height: $body-md-line-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $body-lg-font-size;
+        line-height: $body-lg-line-height;
+    }
+}
+
+.body-2 {
+    font-size: $body-2-font-size;
+    line-height: $body-2-line-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-2-md-font-size;
+        line-height: $body-2-md-line-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $body-2-lg-font-size;
+        line-height: $body-2-lg-line-height;
+    }
+}
+
+.body-3 {
+    font-size: $body-3-font-size;
+    line-height: $body-3-line-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-3-md-font-size;
+        line-height: $body-3-md-line-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $body-3-lg-font-size;
+        line-height: $body-3-lg-line-height;
+    }
+}
+
+.body-4 {
+    font-size: $body-4-font-size;
+    line-height: $body-4-line-height;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-4-md-font-size;
+        line-height: $body-4-md-line-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: $body-4-lg-font-size;
+        line-height: $body-4-lg-line-height;
     }
 }
 
@@ -124,8 +204,64 @@ button, a.button {
     }
 }
 
+// Text alignment
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
 // Non-breaking copy, useful for preventing widows
+// Propagating
 .text-nowrap {
     white-space: nowrap;
 }
 
+.text-nowrap-sm-up {
+    @include media-breakpoint-up(sm) {
+        white-space: nowrap;
+    }
+}
+
+.text-nowrap-md-up {
+    @include media-breakpoint-up(md) {
+        white-space: nowrap;
+    }
+}
+
+.text-nowrap-lg-up {
+    @include media-breakpoint-up(lg) {
+        white-space: nowrap;
+    }
+}
+
+.text-nowrap-lg-xl {
+    @include media-breakpoint-up(xl) {
+        white-space: nowrap;
+    }
+}
+
+// Non-propagating
+.text-nowrap-sm-only {
+    @include media-breakpoint-only(sm) {
+        white-space: nowrap;
+    }
+}
+
+.text-nowrap-md-only {
+    @include media-breakpoint-only(md) {
+        white-space: nowrap;
+    }
+}
+
+.text-nowrap-lg-only {
+    @include media-breakpoint-only(lg) {
+        white-space: nowrap;
+    }
+
+    @include media-breakpoint-only(xl) {
+        white-space: nowrap;
+    }
+}
