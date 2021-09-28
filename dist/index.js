@@ -3031,7 +3031,7 @@ var Button = /** @class */ (function (_super) {
     Button.prototype.render = function () {
         var _a = this.props, type = _a.type, size = _a.size, style = _a.style, path = _a.path, linkDescription = _a.linkDescription, openInNewTab = _a.openInNewTab, enabled = _a.enabled, children = _a.children;
         return (path ?
-            react.createElement("a", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled'), href: path, target: openInNewTab ? "_blank" : "_self", "aria-label": linkDescription })
+            react.createElement("a", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled'), href: path, target: openInNewTab ? "_blank" : "_self", "aria-label": linkDescription }, children)
             :
                 react.createElement("button", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled') }, children));
     };
