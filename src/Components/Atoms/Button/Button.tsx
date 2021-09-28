@@ -29,7 +29,7 @@ class Button extends React.Component<ButtonProps> {
 
 		return (
 			path ?
-				<a data-testid="button" className={`button ${type} ${size} ${style}` + (enabled ? '' : ' disabled')} href={path} target={openInNewTab ? "_blank" : "_self"} aria-label={linkDescription}></a>
+				<a data-testid="button" className={`button ${type} ${size} ${style}` + (enabled ? '' : ' disabled')} href={path} target={openInNewTab ? "_blank" : "_self"} aria-label={linkDescription}>{children}</a>
 			:
 				<button
 					data-testid="button"
