@@ -3,7 +3,7 @@ interface Props {
     className?: string;
     backgroundColors: [string, string, string];
     foregroundColors: ["normal" | "inverted", "normal" | "inverted", "normal" | "inverted"];
-    content: [React.ReactNode, React.ReactNode, React.ReactNode];
+    content: React.ReactNode[];
 }
 declare class StackedContentThree extends React.Component<Props> {
     render(): JSX.Element;

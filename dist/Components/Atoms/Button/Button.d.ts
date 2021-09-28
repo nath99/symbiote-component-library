@@ -3,6 +3,9 @@ interface ButtonProps {
     type?: 'primary' | 'secondary' | 'tertiary';
     size?: 'lg' | 'md' | 'sm' | 'xs';
     style?: 'outline-light' | 'outline-dark' | 'cta';
+    path?: string;
+    linkDescription?: string;
+    openInNewTab?: boolean;
     enabled?: boolean;
 }
 declare class Button extends React.Component<ButtonProps> {

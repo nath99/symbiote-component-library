@@ -1,25 +1,44 @@
 import * as React from "react";
 
 interface ButtonProps {
-  type?: 'primary'|'secondary'|'tertiary',
-  size?: 'lg'|'md'|'sm'|'xs',
-  style?: 'outline-light'|'outline-dark'|'cta',
-  enabled?: boolean
+	type?: 'primary'|'secondary'|'tertiary',
+	size?: 'lg'|'md'|'sm'|'xs',
+	style?: 'outline-light'|'outline-dark'|'cta',
+	path?: string,
+	linkDescription?: string,
+	openInNewTab?: boolean
+	enabled?: boolean
 }
 
 class Button extends React.Component<ButtonProps> {
-  static defaultProps = {
-    enabled: true
-  }
+	static defaultProps = {
+		enabled: true
+	}
 
-  render() {
-    return (
-        <button
-          data-testid="button"
-          className={`button ${this.props.type} ${this.props.size} ${this.props.style}` + (this.props.enabled ? '': ' disabled')}>{this.props.children}</button>
-    )
-  }
-}
+	render() {
+		const {
+			type,
+			size,
+			style,
+			path,
+			linkDescription,
+			openInNewTab,
+			enabled,
+			children
+		} = this.props;
 
+		return (
+			path ?
+				<a data-testid="button" className={`button ${type} ${size} ${style}` + (enabled ? '' : ' disabled')} href={path} target={openInNewTab ? "_blank" : "_self"} aria-label={linkDescription}></a>
+			:
+				<button
+					data-testid="button"
+					className={`button ${type} ${size} ${style}` + (enabled ? '' : ' disabled')}>{children}
+				</button>
 
-export { Button, ButtonProps };
+			)
+		}
+	}
+
+	export { Button, ButtonProps };
+

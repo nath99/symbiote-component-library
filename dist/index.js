@@ -2985,12 +2985,14 @@ __webpack_require__.d(__webpack_exports__, {
   "Footer": () => (/* reexport */ Footer),
   "Hero": () => (/* reexport */ Hero),
   "Icon": () => (/* reexport */ Icon),
+  "Image": () => (/* reexport */ Image),
   "Label": () => (/* reexport */ Label),
   "List": () => (/* reexport */ List),
   "Modal": () => (/* reexport */ Modal),
   "Notification": () => (/* reexport */ Notification),
   "PageAlert": () => (/* reexport */ PageAlert),
   "Pagination": () => (/* reexport */ Pagination),
+  "PictureImage": () => (/* reexport */ PictureImage),
   "ProgressBar": () => (/* reexport */ ProgressBar),
   "Radio": () => (/* reexport */ Radio),
   "Select": () => (/* reexport */ Select),
@@ -3027,7 +3029,11 @@ var Button = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Button.prototype.render = function () {
-        return (react.createElement("button", { "data-testid": "button", className: "button " + this.props.type + " " + this.props.size + " " + this.props.style + (this.props.enabled ? '' : ' disabled') }, this.props.children));
+        var _a = this.props, type = _a.type, size = _a.size, style = _a.style, path = _a.path, linkDescription = _a.linkDescription, openInNewTab = _a.openInNewTab, enabled = _a.enabled, children = _a.children;
+        return (path ?
+            react.createElement("a", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled'), href: path, target: openInNewTab ? "_blank" : "_self", "aria-label": linkDescription })
+            :
+                react.createElement("button", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled') }, children));
     };
     Button.defaultProps = {
         enabled: true
@@ -3487,6 +3493,80 @@ var Separator = /** @class */ (function (_super) {
     return Separator;
 }(react.Component));
 /* harmony default export */ const Separator_Separator = ((/* unused pure expression or super */ null && (Separator)));
+
+
+;// CONCATENATED MODULE: ./src/Components/Atoms/Image/Image.tsx
+var Image_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var Image = /** @class */ (function (_super) {
+    Image_extends(Image, _super);
+    function Image() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Image.prototype.render = function () {
+        var _a = this.props, image = _a.image, altText = _a.altText, className = _a.className;
+        return (react.createElement("img", { src: image[0] ? image[0] : "", srcSet: "" + (image[1] ? image[1] + "2x" : ""), className: className && className, alt: altText }));
+    };
+    return Image;
+}(react.Component));
+/* harmony default export */ const Image_Image = ((/* unused pure expression or super */ null && (Image)));
+
+
+;// CONCATENATED MODULE: ./src/Components/Atoms/PictureImage/PictureImage.tsx
+var PictureImage_extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var PictureImage = /** @class */ (function (_super) {
+    PictureImage_extends(PictureImage, _super);
+    function PictureImage() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    PictureImage.prototype.render = function () {
+        var _a = this.props, breakpoints = _a.breakpoints, xsImages = _a.xsImages, smImages = _a.smImages, mdImages = _a.mdImages, lgImages = _a.lgImages, xlImages = _a.xlImages, altText = _a.altText, className = _a.className;
+        return (react.createElement("picture", null,
+            xsImages &&
+                react.createElement("source", { srcSet: (xsImages[0] ? xsImages[0] : "") + " " + (xsImages[1] ? ',' + xsImages[1] + '2x' : ""), media: "(max-width: " + (breakpoints.sm - 1) + "px" }),
+            smImages &&
+                react.createElement("source", { srcSet: (smImages[0] ? smImages[0] : "") + " " + (smImages[1] ? ',' + smImages[1] + '2x' : ""), media: "(min-width: " + breakpoints.sm + "px (max-width: " + (breakpoints.md - 1) + "px)" }),
+            mdImages &&
+                react.createElement("source", { srcSet: (mdImages[0] ? mdImages[0] : "") + " " + (mdImages[1] ? ',' + mdImages[1] + '2x' : ""), media: "(min-width: " + breakpoints.md + "px (max-width: " + (breakpoints.lg - 1) + "px)" }),
+            lgImages &&
+                react.createElement("source", { srcSet: (lgImages[0] ? lgImages[0] : "") + " " + (lgImages[1] ? ',' + lgImages[1] + '2x' : ""), media: "(min-width: " + breakpoints.lg + "px (max-width: " + (breakpoints.xl - 1) + "px)" }),
+            xlImages &&
+                react.createElement("source", { srcSet: (xlImages[0] ? xlImages[0] : "") + " " + (xlImages[1] ? ',' + xlImages[1] + '2x' : ""), media: "(min-width: " + breakpoints.xl + "px" }),
+            xsImages &&
+                react.createElement("img", { src: "" + (xsImages[0] ? xsImages[0] : ""), srcSet: "" + (xsImages[0] ? xsImages[0] + '2x' : ""), className: className && className, alt: altText })));
+    };
+    return PictureImage;
+}(react.Component));
+/* harmony default export */ const PictureImage_PictureImage = ((/* unused pure expression or super */ null && (PictureImage)));
 
 
 ;// CONCATENATED MODULE: ./src/Components/Molecules/Accordion/Accordion.tsx
@@ -4548,6 +4628,8 @@ var DatePicker = /** @class */ (function (_super) {
 ;// CONCATENATED MODULE: ./src/index.ts
 
 // Export Atoms
+
+
 
 
 

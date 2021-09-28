@@ -7,11 +7,10 @@ interface Props {
     className?: string,
     backgroundColors: [string, string, ...string[]],
     foregroundColors: ["normal" | "inverted", "normal" | "inverted", ..."normal"[] | "inverted"[]],
-    content: [React.ReactNode, React.ReactNode, ...React.ReactNode[]]
+    content: React.ReactNode[]
 }
 
 class StackedContent extends React.Component<Props> {
-
     renderStackedContent = (): JSX.Element | undefined => {
         const {
             className,

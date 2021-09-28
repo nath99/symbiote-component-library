@@ -13,7 +13,8 @@ export * from './Components/Atoms/Table/Table';
 export * from './Components/Atoms/Toggle/Toggle';
 export * from './Components/Atoms/Tooltip/Tooltip';
 export * from './Components/Atoms/Separator/Separator';
-
+export * from './Components/Atoms/Image/Image';
+export * from './Components/Atoms/PictureImage/PictureImage';
 // Export Molecules
 export * from './Components/Molecules/Accordion/Accordion';
 export * from './Components/Molecules/Breadcrumbs/Breadcrumbs';

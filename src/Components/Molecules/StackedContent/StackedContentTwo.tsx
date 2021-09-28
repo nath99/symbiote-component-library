@@ -4,7 +4,7 @@ interface Props {
     className?: string,
     backgroundColors: [string, string],
     foregroundColors: ["normal" | "inverted", "normal" | "inverted"],
-    content: [React.ReactNode, React.ReactNode]
+    content: React.ReactNode[]
 }
 
 class StackedContentTwo extends React.Component<Props> {
