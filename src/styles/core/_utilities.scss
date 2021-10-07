@@ -150,6 +150,26 @@ $utilities: map-merge(
                 flex: 'flex',
                 inline-flex: 'inline-flex'
             )
+        ),
+        'align-self': (
+            class: 'align-self',
+            property: align-self,
+            values: (
+                auto: 'auto',
+                start: 'flex-start',
+                center: 'center',
+                end: 'flex-end'
+            )
+        ),
+        'justify-self': (
+            class: 'justify-self',
+            property: justify-self,
+            values: (
+                auto: 'auto',
+                start: 'flex-start',
+                center: 'center',
+                end: 'flex-end'
+            )
         )
     ),
     $utilities

@@ -3023,6 +3023,18 @@ var __extends = (undefined && undefined.__extends) || (function () {
     };
 })();
 
+/*
+<Button
+    type={ctaData.type}
+    size={ctaData.size}
+    style={ctaData.style}
+    path={ctaData.path}
+    linkDescription={ctaData.linkDescription}
+    openInNewTab={ctaData.openInNewTab}
+>
+{ctaData.text}
+</Button>
+*/
 var Button = /** @class */ (function (_super) {
     __extends(Button, _super);
     function Button() {

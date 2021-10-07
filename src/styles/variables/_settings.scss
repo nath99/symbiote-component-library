@@ -24,6 +24,17 @@
 // Body settings
 $body-background-color: $gray-non-aa-lightest !default;
 
+// Layout settings
+$main-margin: 1.5rem 0 3rem 0 !default;
+$heading-1-margin: 0 0 0.5rem 0 !default;
+$heading-2-margin: 0 0 0.5rem 0 !default;
+$heading-3-margin: 1.5rem 0 0.5rem 0 !default;
+$heading-4-margin: 1.5rem 0 0.5rem 0 !default;
+$heading-5-margin: 1.5rem 0 0.5rem 0 !default;
+$heading-6-margin: 1.5rem 0 0.5rem 0 !default;
+$paragraph-margin-top: 1.2em !default;
+$paragraph-margin-bottom: 1.2em !default;
+
 // Typography settings
 $heading-font-family: 'Open Sans', sans-serif !default;
 $body-font-family: 'Open Sans', sans-serif !default;

@@ -10,6 +10,19 @@ interface ButtonProps {
 	enabled?: boolean
 }
 
+/*
+<Button
+    type={ctaData.type}
+    size={ctaData.size}
+    style={ctaData.style}
+    path={ctaData.path}
+    linkDescription={ctaData.linkDescription}
+    openInNewTab={ctaData.openInNewTab}
+>
+{ctaData.text}
+</Button>
+*/
+
 class Button extends React.Component<ButtonProps> {
 	static defaultProps = {
 		enabled: true

@@ -1,36 +1,53 @@
+@import '../variables/settings';
+
+$main-headings: (
+    'h1': $heading-1-margin,
+    'h2': $heading-2-margin
+);
+
+$smaller-headings: (
+    'h3': $heading-3-margin,
+    'h4': $heading-4-margin,
+    'h5': $heading-5-margin,
+    'h6': $heading-6-margin
+);
+
 // Content layout
 main {
-    margin: 1.5rem 0 3rem 0;
+    margin: $main-margin;
 }
 
 // Text layout
     // Headings
 
     // First headings on a page should not have any extra margin on top. The main content container will already be padded.
-    h1, h2 {
-        margin: 0 0 0.5rem 0;
+    @each $heading, $margin in $main-headings {
+        #{$heading} {
+            margin: #{$margin};
 
-        // Body directly below a heading should not have any extra margin on top to better indicate association.
-        & + p {
-            margin: 0 0 1.2rem 0;
+            // Body directly below a heading should not have any extra margin on top to better indicate association.
+            & + p {
+                margin: 0 0 #{$paragraph-margin-bottom} 0;
+            }
         }
     }
 
     // Smaller heading on the page can have extra margin on top but have the same margin bottom for consistency with top level headings
-    h3, h4, h5, h6 {
-        margin: 1.5rem 0 0.5rem 0;
+    @each $heading, $margin in $smaller-headings {
+        #{$heading} {
+            margin: #{$margin};
 
-        // Body directly below a heading should not have any extra margin on top to better indicate association.
-        & + p {
-            margin: 0 0 1.2rem 0;
+            // Body directly below a heading should not have any extra margin on top to better indicate association.
+            & + p {
+                margin: 0 0 #{$paragraph-margin-bottom} 0;
+            }
         }
     }
 
     // Body
-
     // All remaining body elements should have margins on top and on the bottom to provide clear spacing between paragraphs.
     p {
-        margin: 1.2rem 0;
+        margin: #{$paragraph-margin-top} 0 #{$paragraph-margin-bottom} 0;
     }
 
 
