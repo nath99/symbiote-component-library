@@ -106,6 +106,7 @@ $default-text-color: $black !default;
 $link-color: $cyan-aa-small !default;
 
 // Button settings
+$button-min-width: unset !default;
 $button-font-family: $body-font-family !default;
 $button-font-size: 0.875rem !default;
 $button-line-height: 1.45 !default;
