@@ -6,13 +6,13 @@ import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 
-import { Button, ButtonProps } from "./Button";
+import { Button } from "./Button";
 
     // Add Accessibility testing
 expect.extend(toHaveNoViolations)
 
 describe("Button Component", () => {
-    let buttonProps: ButtonProps,
+    let buttonProps,
         buttonText: string;
 
     beforeEach(() => {

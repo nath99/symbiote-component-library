@@ -1,5 +1,5 @@
 import * as React from "react";
-interface ButtonProps {
+interface Props {
     type?: 'primary' | 'secondary' | 'tertiary';
     size?: 'lg' | 'md' | 'sm' | 'xs';
     style?: 'outline-light' | 'outline-dark' | 'cta';
@@ -7,11 +7,12 @@ interface ButtonProps {
     linkDescription?: string;
     openInNewTab?: boolean;
     enabled?: boolean;
+    testId?: string;
 }
-declare class Button extends React.Component<ButtonProps> {
+declare class Button extends React.Component<Props> {
     static defaultProps: {
         enabled: boolean;
     };
     render(): JSX.Element;
 }
-export { Button, ButtonProps };
+export { Button };

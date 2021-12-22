@@ -3023,29 +3023,23 @@ var __extends = (undefined && undefined.__extends) || (function () {
     };
 })();
 
-/*
-<Button
-    type={ctaData.type}
-    size={ctaData.size}
-    style={ctaData.style}
-    path={ctaData.path}
-    linkDescription={ctaData.linkDescription}
-    openInNewTab={ctaData.openInNewTab}
->
-{ctaData.text}
-</Button>
-*/
 var Button = /** @class */ (function (_super) {
     __extends(Button, _super);
     function Button() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Button.prototype.render = function () {
-        var _a = this.props, type = _a.type, size = _a.size, style = _a.style, path = _a.path, linkDescription = _a.linkDescription, openInNewTab = _a.openInNewTab, enabled = _a.enabled, children = _a.children;
+        var _a = this.props, type = _a.type, size = _a.size, style = _a.style, path = _a.path, linkDescription = _a.linkDescription, openInNewTab = _a.openInNewTab, enabled = _a.enabled, children = _a.children, testId = _a.testId;
+        var linkTarget = Boolean(openInNewTab) ? '_blank' : '_self';
+        var dataTestId = (typeof testId !== 'undefined') ? testId : 'button';
+        var btnClassName = "button " + type + " " + size + " " + style;
+        if (!enabled) {
+            btnClassName += ' disabled';
+        }
         return (path ?
-            react.createElement("a", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled'), href: path, target: openInNewTab ? "_blank" : "_self", "aria-label": linkDescription }, children)
+            react.createElement("a", { "data-testid": dataTestId, className: btnClassName, href: path, target: linkTarget, "aria-label": linkDescription }, children)
             :
-                react.createElement("button", { "data-testid": "button", className: "button " + type + " " + size + " " + style + (enabled ? '' : ' disabled') }, children));
+                react.createElement("button", { "data-testid": dataTestId, className: btnClassName }, children));
     };
     Button.defaultProps = {
         enabled: true
