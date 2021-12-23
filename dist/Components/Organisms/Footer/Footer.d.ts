@@ -1,29 +1,28 @@
 import React from "react";
-interface FooterLink {
-    footerlabel: string;
-    footerLink: string;
+interface Image {
+    image: string;
+    altText: string;
 }
-interface FooterList {
-    heading: string;
-    footerLinks: FooterLink[];
+interface FooterDetails {
+    address: string;
+    email: string;
+    phone: string;
 }
-interface SocialLinks {
-    heading?: string;
-    facebook?: string;
-    twitter?: string;
-    instagram?: string;
-    linkedIn?: string;
-}
-interface Copyright {
-    name: string;
-    link: string;
+interface SocialLink {
+    linkClass?: string;
+    url?: string;
+    target?: string;
+    icon: string;
+    title: string;
 }
 interface Props {
-    footerLists: [FooterList, FooterList, FooterList];
-    socialLinks?: SocialLinks;
-    copyright?: Copyright;
+    separatorImg?: Image;
+    footerContent?: string;
+    footerDetails?: FooterDetails;
+    socialLinks?: SocialLink[];
+    copyright?: string;
 }
 declare class Footer extends React.Component<Props> {
     render(): JSX.Element;
 }
-export { FooterLink, FooterList, SocialLinks, Copyright, Footer };
+export { FooterDetails, Footer };
