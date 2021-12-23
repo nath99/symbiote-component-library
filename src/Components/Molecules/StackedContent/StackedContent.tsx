@@ -3,32 +3,32 @@ import { StackedContentTwo } from "./StackedContentTwo";
 import { StackedContentThree } from "./StackedContentThree";
 import { StackedContentFour } from "./StackedContentFour";
 
+export interface StackedContentContent {
+    backgroundColor: string,
+    foregroundColor: string,
+    content: React.ReactNode
+}
+
 interface Props {
     className?: string,
-    backgroundColors: [string, string, ...string[]],
-    foregroundColors: ["normal" | "inverted", "normal" | "inverted", ..."normal"[] | "inverted"[]],
-    content: React.ReactNode[]
+    contents: StackedContentContent[]
 }
 
 class StackedContent extends React.Component<Props> {
     renderStackedContent = (): JSX.Element | undefined => {
         const {
             className,
-            backgroundColors,
-            foregroundColors,
-            content
+            contents
         } = this.props
 
         let stackedContent;
 
-        switch (content.length) {
+        switch (contents.length) {
             case 2:
                 stackedContent =
                     <StackedContentTwo
                         className={className}
-                        backgroundColors={[backgroundColors[0], backgroundColors[1]]}
-                        foregroundColors={[foregroundColors[0], foregroundColors[1]]}
-                        content={[content[0], content[1]]}
+                        contents={contents}
                     ></StackedContentTwo>
                 break;
 
@@ -36,9 +36,7 @@ class StackedContent extends React.Component<Props> {
                 stackedContent =
                     <StackedContentThree
                         className={className}
-                        backgroundColors={[backgroundColors[0], backgroundColors[1], backgroundColors[2]]}
-                        foregroundColors={[foregroundColors[0], foregroundColors[1], foregroundColors[2]]}
-                        content={[content[0], content[1], content[2]]}
+                        contents={contents}
                     ></StackedContentThree>
                 break;
 
@@ -46,9 +44,7 @@ class StackedContent extends React.Component<Props> {
                 stackedContent =
                     <StackedContentFour
                         className={className}
-                        backgroundColors={[backgroundColors[0], backgroundColors[1], backgroundColors[2], backgroundColors[3]]}
-                        foregroundColors={[foregroundColors[0], foregroundColors[1], foregroundColors[2], foregroundColors[3]]}
-                        content={[content[0], content[1], content[2], content[3]]}
+                        contents={contents}
                     ></StackedContentFour>
                 break;
         }

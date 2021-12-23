@@ -3832,13 +3832,27 @@ var StackedContentTwo = /** @class */ (function (_super) {
     function StackedContentTwo() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    StackedContentTwo.prototype.renderBox1 = function () {
+        var contents = this.props.contents;
+        var boxContents = contents[0];
+        var boxFgClassName = "col-12 col-md-7 col-lg-5" + (boxContents.foregroundColor == "inverted" ? " inverted" : "");
+        var boxBgClassName = "content-box box-1 col-12 col-md-10" + (!boxContents.content ? ' content-box--empty' : '');
+        return (react.createElement("div", { className: boxBgClassName, style: { background: "" + boxContents.backgroundColor } },
+            react.createElement("div", { className: boxFgClassName }, boxContents.content)));
+    };
+    StackedContentTwo.prototype.renderBox2 = function () {
+        var contents = this.props.contents;
+        var boxContents = contents[1];
+        var boxFgClassName = "col-12 col-lg-10 " + (boxContents.foregroundColor == "inverted" ? " inverted" : "");
+        var boxBgClassName = "content-box box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5" + (!boxContents.content ? ' content-box--empty' : '');
+        return (react.createElement("div", { className: boxBgClassName, style: { background: "" + boxContents.backgroundColor } },
+            react.createElement("div", { className: boxFgClassName }, boxContents.content)));
+    };
     StackedContentTwo.prototype.render = function () {
-        var _a = this.props, className = _a.className, backgroundColors = _a.backgroundColors, foregroundColors = _a.foregroundColors, content = _a.content;
+        var className = this.props.className;
         return (react.createElement("div", { className: "stacked-content " + (className ? className : "") },
-            react.createElement("div", { className: "content-box" + (!content[0] ? " content-box--empty" : "") + " box-1 col-12 col-md-10", style: { background: "" + backgroundColors[0] } },
-                react.createElement("div", { className: "col-12 col-md-7 col-lg-5 " + (foregroundColors[0] == "inverted" ? "inverted" : "") }, content[0])),
-            react.createElement("div", { className: "content-box" + (!content[1] ? " content-box--empty" : "") + " box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5", style: { background: "" + backgroundColors[1] } },
-                react.createElement("div", { className: "col-12 col-lg-10 " + (foregroundColors[1] == "inverted" ? "inverted" : "") }, content[1]))));
+            this.renderBox1(),
+            this.renderBox2()));
     };
     return StackedContentTwo;
 }(react.Component));
@@ -3866,15 +3880,36 @@ var StackedContentThree = /** @class */ (function (_super) {
     function StackedContentThree() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    StackedContentThree.prototype.renderBox1 = function () {
+        var contents = this.props.contents;
+        var boxContents = contents[0];
+        var boxBgClassName = "content-box box-1 col-12 col-md-10" + (!boxContents.content ? ' content-box--empty' : '');
+        var boxFgClassName = "col-12 col-md-7 col-lg-5" + (boxContents.foregroundColor == "inverted" ? " inverted" : "");
+        return (react.createElement("div", { className: boxBgClassName, style: { background: "" + boxContents.backgroundColor } },
+            react.createElement("div", { className: boxFgClassName }, boxContents.content)));
+    };
+    StackedContentThree.prototype.renderBox2 = function () {
+        var contents = this.props.contents;
+        var boxContents = contents[1];
+        var boxBgClassName = "content-box box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5" + (!boxContents.content ? ' content-box--empty' : '');
+        var boxFgClassName = "col-12 col-lg-10" + (boxContents.foregroundColor == "inverted" ? " inverted" : "");
+        return (react.createElement("div", { className: boxBgClassName, style: { background: "" + boxContents.backgroundColor } },
+            react.createElement("div", { className: boxFgClassName }, boxContents.content)));
+    };
+    StackedContentThree.prototype.renderBox3 = function () {
+        var contents = this.props.contents;
+        var boxContents = contents[2];
+        var boxBgClassName = "content-box box-3 col-12 col-md-6 offset-md-1 col-lg-7 offset-lg-2" + (!boxContents.content ? ' content-box--empty' : '');
+        var boxFgClassName = "col-12 col-lg-10" + (boxContents.foregroundColor == "inverted" ? " inverted" : "");
+        return (react.createElement("div", { className: boxBgClassName, style: { background: "" + boxContents.backgroundColor } },
+            react.createElement("div", { className: boxFgClassName }, boxContents.content)));
+    };
     StackedContentThree.prototype.render = function () {
-        var _a = this.props, className = _a.className, backgroundColors = _a.backgroundColors, foregroundColors = _a.foregroundColors, content = _a.content;
+        var className = this.props.className;
         return (react.createElement("div", { className: "stacked-content " + (className ? className : "") },
-            react.createElement("div", { className: "content-box" + (!content[0] ? " content-box--empty" : "") + " box-1 col-12 col-md-10", style: { background: "" + backgroundColors[0] } },
-                react.createElement("div", { className: "col-12 col-md-7 col-lg-5 " + (foregroundColors[0] == "inverted" ? "inverted" : "") }, content[0])),
-            react.createElement("div", { className: "content-box" + (!content[1] ? " content-box--empty" : "") + " box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5", style: { background: "" + backgroundColors[1] } },
-                react.createElement("div", { className: "col-12 col-lg-10 " + (foregroundColors[1] == "inverted" ? "inverted" : "") }, content[1])),
-            react.createElement("div", { className: "content-box" + (!content[2] ? " content-box--empty" : "") + " box-3 col-12 col-md-6 offset-md-1 col-lg-7 offset-lg-2", style: { background: "" + backgroundColors[2] } },
-                react.createElement("div", { className: "col-12 col-lg-10 " + (foregroundColors[2] == "inverted" ? "inverted" : "") }, content[2]))));
+            this.renderBox1(),
+            this.renderBox2(),
+            this.renderBox3()));
     };
     return StackedContentThree;
 }(react.Component));
@@ -3935,20 +3970,20 @@ var StackedContent = /** @class */ (function (_super) {
     function StackedContent() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.renderStackedContent = function () {
-            var _a = _this.props, className = _a.className, backgroundColors = _a.backgroundColors, foregroundColors = _a.foregroundColors, content = _a.content;
+            var _a = _this.props, className = _a.className, contents = _a.contents;
             var stackedContent;
-            switch (content.length) {
+            switch (contents.length) {
                 case 2:
                     stackedContent =
-                        react.createElement(StackedContentTwo, { className: className, backgroundColors: [backgroundColors[0], backgroundColors[1]], foregroundColors: [foregroundColors[0], foregroundColors[1]], content: [content[0], content[1]] });
+                        react.createElement(StackedContentTwo, { className: className, contents: contents });
                     break;
                 case 3:
                     stackedContent =
-                        react.createElement(StackedContentThree, { className: className, backgroundColors: [backgroundColors[0], backgroundColors[1], backgroundColors[2]], foregroundColors: [foregroundColors[0], foregroundColors[1], foregroundColors[2]], content: [content[0], content[1], content[2]] });
+                        react.createElement(StackedContentThree, { className: className, contents: contents });
                     break;
                 case 4:
                     stackedContent =
-                        react.createElement(StackedContentFour, { className: className, backgroundColors: [backgroundColors[0], backgroundColors[1], backgroundColors[2], backgroundColors[3]], foregroundColors: [foregroundColors[0], foregroundColors[1], foregroundColors[2], foregroundColors[3]], content: [content[0], content[1], content[2], content[3]] });
+                        react.createElement(StackedContentFour, { className: className, contents: contents });
                     break;
             }
             return stackedContent;

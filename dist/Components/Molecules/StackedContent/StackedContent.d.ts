@@ -1,9 +1,12 @@
 import * as React from "react";
+export interface StackedContentContent {
+    backgroundColor: string;
+    foregroundColor: string;
+    content: React.ReactNode;
+}
 interface Props {
     className?: string;
-    backgroundColors: [string, string, ...string[]];
-    foregroundColors: ["normal" | "inverted", "normal" | "inverted", ..."normal"[] | "inverted"[]];
-    content: React.ReactNode[];
+    contents: StackedContentContent[];
 }
 declare class StackedContent extends React.Component<Props> {
     renderStackedContent: () => JSX.Element | undefined;

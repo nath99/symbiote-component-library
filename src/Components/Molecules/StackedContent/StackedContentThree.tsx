@@ -1,38 +1,70 @@
 import * as React from "react";
+import { StackedContentContent } from "./StackedContent";
 
 interface Props {
     className?: string,
-    backgroundColors: [string, string, string],
-    foregroundColors: ["normal" | "inverted", "normal" | "inverted", "normal" | "inverted"],
-    content: React.ReactNode[]
+    contents: StackedContentContent[]
 }
 
 class StackedContentThree extends React.Component<Props> {
+    renderBox1(): JSX.Element {
+        const { contents } = this.props;
+
+        const boxContents = contents[0];
+        const boxBgClassName = `content-box box-1 col-12 col-md-10${!boxContents.content ? ' content-box--empty' : ''}`;
+        const boxFgClassName = `col-12 col-md-7 col-lg-5${boxContents.foregroundColor == "inverted" ? " inverted" : ""}`;
+
+        return (
+            <div className={boxBgClassName} style={{ background: `${boxContents.backgroundColor}` }}>
+                <div className={boxFgClassName}>
+                    {boxContents.content}
+                </div>
+            </div>
+        )
+    }
+
+    renderBox2(): JSX.Element {
+        const { contents } = this.props;
+
+        const boxContents = contents[1];
+        const boxBgClassName = `content-box box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5${!boxContents.content ? ' content-box--empty' : ''}`;
+        const boxFgClassName = `col-12 col-lg-10${boxContents.foregroundColor == "inverted" ? " inverted" : ""}`;
+
+        return (
+            <div className={boxBgClassName} style={{ background: `${boxContents.backgroundColor}` }}>
+                <div className={boxFgClassName}>
+                    {boxContents.content}
+                </div>
+            </div>
+        )
+    }
+
+    renderBox3(): JSX.Element {
+        const { contents } = this.props;
+
+        const boxContents = contents[2];
+        const boxBgClassName = `content-box box-3 col-12 col-md-6 offset-md-1 col-lg-7 offset-lg-2${!boxContents.content ? ' content-box--empty' : ''}`;
+        const boxFgClassName = `col-12 col-lg-10${boxContents.foregroundColor == "inverted" ? " inverted" : ""}`;
+
+        return (
+            <div className={boxBgClassName} style={{ background: `${boxContents.backgroundColor}` }}>
+                <div className={boxFgClassName}>
+                    {boxContents.content}
+                </div>
+            </div>
+        )
+    }
+
     render() {
         const {
-            className,
-            backgroundColors,
-            foregroundColors,
-            content
+            className
         } = this.props
 
         return (
             <div className={`stacked-content ${className ? className : ""}`}>
-                <div className={`content-box${!content[0] ? " content-box--empty" : ""} box-1 col-12 col-md-10` } style={{ background: `${backgroundColors[0]}` }}>
-                    <div className={`col-12 col-md-7 col-lg-5 ${foregroundColors[0] == "inverted" ? "inverted" : ""}`}>
-                        {content[0]}
-                    </div>
-                </div>
-                <div className={`content-box${!content[1] ? " content-box--empty" : ""} box-2 col-12 col-md-6 offset-md-6 col-lg-7 offset-lg-5`} style={{ background: `${backgroundColors[1]}` }}>
-                    <div className={`col-12 col-lg-10 ${foregroundColors[1] == "inverted" ? "inverted" : ""}`}>
-                        {content[1]}
-                    </div>
-                </div>
-                <div className={`content-box${!content[2] ? " content-box--empty" : ""} box-3 col-12 col-md-6 offset-md-1 col-lg-7 offset-lg-2`} style={{ background: `${backgroundColors[2]}` }}>
-                    <div className={`col-12 col-lg-10 ${foregroundColors[2] == "inverted" ? "inverted" : ""}`}>
-                        {content[2]}
-                    </div>
-                </div>
+                {this.renderBox1()}
+                {this.renderBox2()}
+                {this.renderBox3()}
             </div>
         )
     }
