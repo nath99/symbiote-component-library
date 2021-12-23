@@ -4039,51 +4039,38 @@ var Footer = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Footer.prototype.render = function () {
-        var _a = this.props, footerLists = _a.footerLists, socialLinks = _a.socialLinks, copyright = _a.copyright;
+        var _a = this.props, separatorImg = _a.separatorImg, footerContent = _a.footerContent, footerDetails = _a.footerDetails, socialLinks = _a.socialLinks, copyright = _a.copyright;
         return (react.createElement("div", { className: "container-fluid footer-container" },
-            react.createElement("footer", null,
+            react.createElement("footer", { className: "footer" },
                 react.createElement("div", { className: "container" },
+                    separatorImg && (react.createElement("div", { className: "row" },
+                        react.createElement("div", { className: "col-12 left" },
+                            react.createElement("img", { className: "separator", src: separatorImg.image, alt: separatorImg.altText })))),
+                    footerContent && (react.createElement("div", { className: "row" },
+                        react.createElement("div", { className: "col-12 left" },
+                            react.createElement("div", { className: "typography", dangerouslySetInnerHTML: { __html: footerContent } })))),
+                    footerDetails && (react.createElement("div", { className: "row" },
+                        footerDetails.address && (react.createElement("div", { className: "col-12 col-lg-4 left" },
+                            react.createElement("h3", null, "Address"),
+                            react.createElement("p", { className: "address h3", dangerouslySetInnerHTML: { __html: footerDetails.address } }))),
+                        footerDetails.email && (react.createElement("div", { className: "col-12 col-lg-4 left" },
+                            react.createElement("h3", null, "Email"),
+                            react.createElement("p", { className: "email-link h3", dangerouslySetInnerHTML: { __html: footerDetails.email } }))),
+                        footerDetails.phone && (react.createElement("div", { className: "col-12 col-lg-4 left" },
+                            react.createElement("h3", null, "Phone"),
+                            react.createElement("p", { className: "phone-link h3", dangerouslySetInnerHTML: { __html: footerDetails.phone } }))))),
                     react.createElement("div", { className: "row" },
-                        footerLists.map(function (fl, index) {
-                            return (react.createElement(react.Fragment, { key: index },
-                                react.createElement("div", { className: "col-xs-6 col-md-3" },
-                                    react.createElement("p", null, fl.heading),
-                                    react.createElement("ul", null, fl.footerLinks.map(function (link, index) {
-                                        return (react.createElement(react.Fragment, { key: index },
-                                            react.createElement("li", null,
-                                                react.createElement("a", { href: link.footerLink }, link.footerlabel))));
-                                    })))));
-                        }),
-                        socialLinks &&
-                            react.createElement("div", { className: "col-xs-6 col-md-3" },
-                                react.createElement("p", null, socialLinks.heading ? socialLinks.heading : "Social"),
-                                socialLinks.facebook &&
-                                    react.createElement("div", { className: "social-link" },
-                                        react.createElement("a", { href: socialLinks.facebook, target: "_blank" },
-                                            react.createElement("i", { className: "lab la-facebook inverted" }),
-                                            react.createElement("p", null, "Facebook"))),
-                                socialLinks.twitter &&
-                                    react.createElement("div", { className: "social-link" },
-                                        react.createElement("a", { href: socialLinks.twitter, target: "_blank" },
-                                            react.createElement("i", { className: "lab la-twitter inverted" }),
-                                            react.createElement("p", null, "Twitter"))),
-                                socialLinks.instagram &&
-                                    react.createElement("div", { className: "social-link" },
-                                        react.createElement("a", { href: socialLinks.instagram, target: "_blank" },
-                                            react.createElement("i", { className: "lab la-instagram inverted" }),
-                                            react.createElement("p", null, "Instagram"))),
-                                socialLinks.linkedIn &&
-                                    react.createElement("div", { className: "social-link" },
-                                        react.createElement("a", { href: socialLinks.linkedIn, target: "_blank" },
-                                            react.createElement("i", { className: "lab la-linkedin-in inverted" }),
-                                            react.createElement("p", null, "LinkedIn"))))))),
-            copyright &&
-                react.createElement("div", { className: "copyright" },
-                    react.createElement("p", null,
-                        "Copyright \u00A9 ",
-                        react.createElement("a", { href: copyright.link, target: "_blank" }, copyright.name),
-                        " ",
-                        new Date().getFullYear().toString()))));
+                        react.createElement("div", { className: "col-12 col-md-4 d-md-none social-links" }, socialLinks && socialLinks.map(function (socialLink) { return (react.createElement("a", { className: socialLink.linkClass ? socialLink.linkClass : "", href: socialLink.url ? socialLink.url : "", target: socialLink.target ? socialLink.target : "_blank", title: socialLink.title },
+                            react.createElement("i", { className: "lab la-" + socialLink.icon + " social-icon" }),
+                            react.createElement("p", { className: "sr-only" },
+                                "Social media link - ",
+                                socialLink.title))); })),
+                        react.createElement("div", { className: "col-12 col-md-8 bottom copyright" }, copyright && react.createElement("div", { className: "typography", dangerouslySetInnerHTML: { __html: copyright } })),
+                        react.createElement("div", { className: "col-12 col-md-4 align-right d-none d-md-block social" }, socialLinks && socialLinks.map(function (socialLink) { return (react.createElement("a", { className: socialLink.linkClass ? socialLink.linkClass : "", href: socialLink.url ? socialLink.url : "", target: socialLink.target ? socialLink.target : "_blank", title: socialLink.title },
+                            react.createElement("i", { className: "lab la-" + socialLink.icon + " social-icon" }),
+                            react.createElement("p", { className: "sr-only" },
+                                "Social media link - ",
+                                socialLink.title))); })))))));
     };
     return Footer;
 }(react.Component));

@@ -1,105 +1,118 @@
-import React from "react"
+import React from "react";
 
-interface FooterLink {
-    footerlabel: string,
-    footerLink: string
+interface Image {
+    image: string,
+    altText: string
 }
 
-interface FooterList {
-    heading: string,
-    footerLinks: FooterLink[]
+interface FooterDetails {
+    address: string,
+    email: string,
+    phone: string
 }
 
-interface SocialLinks {
-    heading?: string,
-    facebook?: string,
-    twitter?: string,
-    instagram?: string,
-    linkedIn?: string
-}
-
-interface Copyright {
-    name: string,
-    link: string
+interface SocialLink {
+    linkClass?: string,
+    url?: string,
+    target?: string,
+    icon: string,
+    title: string
 }
 
 interface Props {
-    footerLists: [FooterList, FooterList, FooterList],
-    socialLinks?: SocialLinks,
-    copyright?: Copyright
+    separatorImg?: Image,
+    footerContent?: string,
+    footerDetails?: FooterDetails,
+    socialLinks?: SocialLink[],
+    copyright?: string
 }
 
 class Footer extends React.Component<Props> {
     render() {
         const {
-            footerLists,
+            separatorImg,
+            footerContent,
+            footerDetails,
             socialLinks,
             copyright
         } = this.props
 
         return (
             <div className="container-fluid footer-container">
-                <footer>
+                <footer className="footer">
                     <div className="container">
-                        <div className="row">
-                            {footerLists.map((fl: FooterList, index) => {
-                                return (
-                                    <React.Fragment key={index}>
-                                        <div className="col-xs-6 col-md-3">
-                                            <p>{fl.heading}</p>
-                                            <ul>
-                                                {fl.footerLinks.map((link: FooterLink, index) => {
-                                                    return (
-                                                        <React.Fragment key={index}>
-                                                            <li><a href={link.footerLink}>{link.footerlabel}</a></li>
-                                                        </React.Fragment>
-                                                    )
-                                                })}
-                                            </ul>
-                                        </div>
-                                    </React.Fragment>
-                                )
-                            })}
-                            {socialLinks &&
-                                <div className="col-xs-6 col-md-3">
-                                    <p>{socialLinks.heading ? socialLinks.heading : "Social"}</p>
-
-                                    {socialLinks.facebook &&
-                                        <div className="social-link">
-                                            <a href={socialLinks.facebook} target="_blank"><i className="lab la-facebook inverted"></i><p>Facebook</p></a>
-                                        </div>
-                                    }
-
-                                    {socialLinks.twitter &&
-                                        <div className="social-link">
-                                            <a href={socialLinks.twitter} target="_blank"><i className="lab la-twitter inverted"></i><p>Twitter</p></a>
-                                        </div>
-                                    }
-
-                                    {socialLinks.instagram &&
-                                        <div className="social-link">
-                                            <a href={socialLinks.instagram} target="_blank"><i className="lab la-instagram inverted"></i><p>Instagram</p></a>
-                                        </div>
-                                    }
-
-                                    {socialLinks.linkedIn &&
-                                        <div className="social-link">
-                                            <a href={socialLinks.linkedIn} target="_blank"><i className="lab la-linkedin-in inverted"></i><p>LinkedIn</p></a>
-                                        </div>
-                                    }
+                        {separatorImg && (
+                            <div className="row">
+                                <div className="col-12 left">
+                                    <img className="separator" src={separatorImg.image} alt={separatorImg.altText}/>
                                 </div>
-                            }
+                            </div>
+                        )}
+                        {footerContent && (
+                            <div className="row">
+                                <div className="col-12 left">
+                                    <div className="typography" dangerouslySetInnerHTML={{ __html: footerContent }} />
+                                </div>
+                            </div>
+                        )}
+                        {footerDetails && (
+                            <div className="row">
+                                {footerDetails.address && (
+                                    <div className="col-12 col-lg-4 left">
+                                        <h3>Address</h3>
+                                        <p className="address h3" dangerouslySetInnerHTML={{ __html: footerDetails.address }} />
+                                    </div>
+                                )}
+                                {footerDetails.email && (
+                                    <div className="col-12 col-lg-4 left">
+                                        <h3>Email</h3>
+                                        <p className="email-link h3" dangerouslySetInnerHTML={{ __html: footerDetails.email }} />
+                                    </div>
+                                )}
+                                {footerDetails.phone && (
+                                    <div className="col-12 col-lg-4 left">
+                                        <h3>Phone</h3>
+                                        <p className="phone-link h3" dangerouslySetInnerHTML={{ __html: footerDetails.phone }} />
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                        <div className="row">
+                            <div className="col-12 col-md-4 d-md-none social-links">
+                                {socialLinks && socialLinks.map(socialLink => (
+                                    <a
+                                        className={socialLink.linkClass ? socialLink.linkClass : ""}
+                                        href={socialLink.url ? socialLink.url : ""}
+                                        target={socialLink.target ? socialLink.target : "_blank"}
+                                        title={socialLink.title}
+                                    >
+                                        <i className={`lab la-${socialLink.icon} social-icon`} />
+                                        <p className="sr-only">Social media link - {socialLink.title}</p>
+                                    </a>
+                                ))}
+                            </div>
+                            <div className="col-12 col-md-8 bottom copyright">
+                                {copyright && <div className="typography" dangerouslySetInnerHTML={{ __html: copyright }} />}
+                            </div>
+                            <div className="col-12 col-md-4 align-right d-none d-md-block social">
+                                {socialLinks && socialLinks.map(socialLink => (
+                                    <a
+                                        className={socialLink.linkClass ? socialLink.linkClass : ""}
+                                        href={socialLink.url ? socialLink.url : ""}
+                                        target={socialLink.target ? socialLink.target : "_blank"}
+                                        title={socialLink.title}
+                                    >
+                                        <i className={`lab la-${socialLink.icon} social-icon`} />
+                                        <p className="sr-only">Social media link - {socialLink.title}</p>
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </footer>
-                {copyright &&
-                    <div className="copyright">
-                        <p>Copyright &#169; <a href={copyright.link} target="_blank">{copyright.name}</a> {new Date().getFullYear().toString()}</p>
-                    </div>
-                }
             </div>
-        )
+        );
     }
 }
 
-export { FooterLink, FooterList, SocialLinks, Copyright, Footer };
+export { FooterDetails, Footer };
